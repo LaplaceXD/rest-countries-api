@@ -15,3 +15,9 @@ export function filterDetails(objToFilter, keyFilter) {
 export function filterByString(obj, key, searchString) {
     return obj.filter((country) => country[key].toLowerCase().startsWith(searchString.toLowerCase()));
 }
+
+export function filterByCriteria(obj, key, criteria) {
+    if (!criteria) return obj;
+
+    return obj.filter((obj) => obj[key] === criteria);
+}

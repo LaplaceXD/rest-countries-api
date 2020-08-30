@@ -8,12 +8,14 @@ const defaultProps = {
 const types = {
     placeholder: PropTypes.string.isRequired,
     onSearch: PropTypes.func.isRequired,
+    value: PropTypes.string,
 };
 
-function SearchBox({ placeholder, onSearch }) {
+function SearchBox({ placeholder, onSearch, value }) {
     return (
         <input
             type="text"
+            value={value}
             placeholder={placeholder}
             className="search-box"
             onChange={(e) => onSearch(e.currentTarget.value)}
