@@ -19,9 +19,9 @@ $input: (
 );
 
 @function get-dark-variant($pallete) {
-    @return map-get($pallete, dark);
-}
+    @if not global-variable-exists($pallete) {
+        @error "No existing pallete has a name of #{$pallete}.";
+    }
 
-@function get-light-variant($pallete) {
-    @return map-get($pallete, light);
+    @return map-get($pallete, dark);
 }
