@@ -1,0 +1,27 @@
+$background: (
+    dark: hsl(207, 26%, 17%),
+    light: hsl(0, 0%, 98%),
+);
+
+$text: (
+    dark: hsl(0, 0%, 100%),
+    light: hsl(200, 15%, 8%),
+);
+
+$elements: (
+    dark: hsl(209, 23%, 22%),
+    light: hsl(0, 0%, 100%),
+);
+
+$input: (
+    dark: hsl(0, 0%, 100%),
+    light: hsl(0, 0%, 52%),
+);
+
+@function get-dark-variant($pallete) {
+    @return map-get($pallete, dark);
+}
+
+@function get-light-variant($pallete) {
+    @return map-get($pallete, light);
+}
