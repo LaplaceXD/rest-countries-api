@@ -1,0 +1,18 @@
+$font-family: "Nunito Sans", sans-serif;
+
+$font-sizes: (
+    home: 14px,
+    detail: 16px,
+);
+
+$font-weights: (
+    light: 300,
+    medium: 600,
+    bold: 800,
+);
+
+@mixin get-font($weight, $size) {
+    font-family: $font-family;
+    font-weight: map-get($font-weights, $weight);
+    font-size: map-get($font-sizes, $size);
+}
