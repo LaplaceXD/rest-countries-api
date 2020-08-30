@@ -6,20 +6,31 @@ import { filterByString, filterByCriteria } from "./utils/filterMethods";
 
 function App() {
     const [countries, setCountries] = useState([]);
+    const [filteredCountries, setFilteredCountries] = useState([]);
     const [search, setSearch] = useState("");
     const [region, setRegion] = useState("");
-    const filteredCountries = search
-        ? filterByString(countries, "name", search)
-        : filterByCriteria(countries, "region", region);
+
+    async function loadCountries() {
+        const { data } = await getCountries();
+        setCountries(data);
+        setFilteredCountries(data);
+    }
+
+    function filterCountries() {
+        const filtered = search
+            ? filterByString(countries, "name", search)
+            : filterByCriteria(countries, "region", region);
+
+        setFilteredCountries(filtered);
+    }
 
     useEffect(() => {
-        async function loadCountries() {
-            const { data } = await getCountries();
-            setCountries(data);
-        }
-
         loadCountries();
-    }, [countries]);
+    }, [])
+
+    useEffect(() => {
+        filterCountries();
+    }, [search, region]);
 
     return (
         <div className="main">
