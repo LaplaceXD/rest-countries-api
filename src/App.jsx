@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
 import FilterInputs from "./components/FilterInputs";
 import Countries from "./components/Countries";
 import { getCountries } from "./services/countriesService";
@@ -34,16 +35,8 @@ function App() {
     }, [search, region]);
 
     return (
-        <div className={`main ${darkMode ? "" : "light"}`}>
-            <header>
-                <div className="header-container l-flex-reversed">
-                    <h1>Where in the world?</h1>
-                    <div className="dark" onClick={() => setDarkMode(!darkMode)}>
-                        <i className={`${darkMode ? "fas" : "far"} fa-moon dark__icon`} />
-                        <p className="dark__text">Dark Mode</p>
-                    </div>
-                </div>
-            </header>
+        <div className={`main-container ${darkMode ? "" : "light"}`}>
+            <Header label="Where in the world?" toggleData={[darkMode, setDarkMode]} />
             <main className="container">
                 <FilterInputs search={[search, setSearch]} region={[region, setRegion]} />
                 <Countries countries={filteredCountries} />
