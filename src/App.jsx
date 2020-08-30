@@ -17,14 +17,16 @@ function App() {
     });
 
     return (
-        <div>
-            {countries.map((country) => (
-                <Card
-                    key={country.alpha3Code}
-                    display={["population", "region", "capital"]}
-                    country={country}
-                />
-            ))}
+        <div className="main">
+            <div className="l-grid">
+                {countries.map((country) => (
+                    <Card
+                        key={country.alpha3Code}
+                        display={["population", "region", "capital"]}
+                        country={country}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
