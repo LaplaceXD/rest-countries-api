@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import http from "./services/httpService";
-import SearchBox from "./components/common/SeachBox";
-import SelectField from "./components/common/SelectField";
+import FilterInputs from "./components/FilterInputs";
 import Countries from "./components/Countries";
 import { filterByString, filterByCriteria } from "./utils/filterMethods";
 
@@ -27,25 +26,7 @@ function App() {
     return (
         <div className="main">
             <main className="container">
-                <section className="l-flex">
-                    <SearchBox
-                        placeholder="Search for a country..."
-                        value={search}
-                        onSearch={(value) => {
-                            setSearch(value);
-                            setRegion("")
-                        }}
-                    />
-                    <SelectField
-                        placeholder="Filter By Region"
-                        value={region}
-                        onInputChange={(value) => {
-                            setRegion(value);
-                            setSearch("")
-                        }}
-                        options={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
-                    />
-                </section>
+                <FilterInputs search={[search, setSearch]} region={[region, setRegion]} />
                 <Countries countries={filteredCountries} />
             </main>
         </div>
