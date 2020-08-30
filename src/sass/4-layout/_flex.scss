@@ -1,0 +1,10 @@
+[class*="l-flex"] {
+    display: flex;
+    flex-direction: column;
+}
+
+.l-flex-reversed {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

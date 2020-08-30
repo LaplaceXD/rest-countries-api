@@ -34,11 +34,12 @@ function App() {
 
     return (
         <div className="main">
-            <header className="header">
-                <div className="container">
+            <header>
+                <div className="header-container l-flex-reversed">
                     <h1>Where in the world?</h1>
                     <div className="dark">
-                    
+                        <i className="far fa-moon dark__icon" />
+                        <p className="dark__text">Dark Mode</p>
                     </div>
                 </div>
             </header>

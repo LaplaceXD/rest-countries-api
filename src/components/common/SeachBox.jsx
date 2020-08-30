@@ -14,7 +14,7 @@ const types = {
 function SearchBox({ placeholder, onSearch, value }) {
     return (
         <div className="search">
-            <i className="fas fa-search search__icon"></i>
+            <i className="fas fa-search search__icon" />
             <input
                 type="text"
                 value={value}

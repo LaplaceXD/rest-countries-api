@@ -5,6 +5,14 @@
     min-height: 100vh;
 }
 
+header {
+    background-color: $element-color;
+}
+
+h1 {
+    font-size: 1.1rem;
+}
+
 input,
 select {
     border-radius: 6px;
