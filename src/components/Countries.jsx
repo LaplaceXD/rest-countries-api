@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./common/Card";
 
 const defaultProps = {
-    id: "alpha3code",
+    id: "alpha3Code",
     display: ["population", "region", "capital"],
 };
 
