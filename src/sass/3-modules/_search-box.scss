@@ -1,0 +1,15 @@
+.search-box {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 1.25em 3em;
+    margin-bottom: 2em;
+    background-color: $element-color;
+    font-family: $font-family;
+    font-size: 1rem;
+    color: $input-color;
+
+    &::placeholder {
+        color: $input-color;
+    }
+}
