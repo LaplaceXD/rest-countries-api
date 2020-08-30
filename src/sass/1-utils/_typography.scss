@@ -13,6 +13,22 @@ $font-weights: (
 
 @mixin get-font($weight, $size) {
     font-family: $font-family;
+    @include get-weight($weight);
+    @include get-size($size);
+}
+
+@mixin get-weight($weight) {
+    @if not map-has-key($font-weights, $weight) {
+        @error "Font-weights has no definition for #{$weight}.";
+    }
+
     font-weight: map-get($font-weights, $weight);
+}
+
+@mixin get-size($size) {
+    @if not map-has-key($font-sizes, $size) {
+        @error "Font sizes has no definition for #{$size}.";
+    }
+
     font-size: map-get($font-sizes, $size);
 }
