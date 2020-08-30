@@ -1,0 +1,15 @@
+$breakpoint-sizes: (
+    small: 375px,
+    medium: 768px,
+    large: 1280px,
+);
+
+@mixin breakpoint($size) {
+    @if map-has-key($breakpoint-sizes, $sizes) {
+        @media screen and (min-width: map-get($breakpoint-sizes, $sizes)) {
+            @content;
+        }
+    } @else {
+        @error "There is no breakpoint size defined for #{$size}";
+    }
+}
