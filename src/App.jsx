@@ -34,6 +34,14 @@ function App() {
 
     return (
         <div className="main">
+            <header className="header">
+                <div className="container">
+                    <h1>Where in the world?</h1>
+                    <div className="dark">
+                    
+                    </div>
+                </div>
+            </header>
             <main className="container">
                 <FilterInputs search={[search, setSearch]} region={[region, setRegion]} />
                 <Countries countries={filteredCountries} />
