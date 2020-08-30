@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import http from "./services/httpService";
 import FilterInputs from "./components/FilterInputs";
 import Countries from "./components/Countries";
+import { getCountries } from "./services/countriesService";
 import { filterByString, filterByCriteria } from "./utils/filterMethods";
-
-const apiEndpoint = "https://restcountries.eu/rest/v2/all";
 
 function App() {
     const [countries, setCountries] = useState([]);
@@ -15,12 +13,12 @@ function App() {
         : filterByCriteria(countries, "region", region);
 
     useEffect(() => {
-        async function getCountries() {
-            const { data } = await http.get(apiEndpoint);
+        async function loadCountries() {
+            const { data } = await getCountries();
             setCountries(data);
         }
 
-        getCountries();
+        loadCountries();
     }, [countries]);
 
     return (

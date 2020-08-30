@@ -1,10 +1,12 @@
 import React from "react";
 import SearchBox from "./common/SeachBox";
 import SelectField from "./common/SelectField";
+import { getRegions } from '../services/countriesService';
 
 function FilterInputs({ search: searchInfo, region: regionInfo }) {
     const [search, setSearch] = searchInfo;
     const [region, setRegion] = regionInfo;
+    const allRegions = getRegions();
 
     return (
         <section className="l-flex">
@@ -23,7 +25,7 @@ function FilterInputs({ search: searchInfo, region: regionInfo }) {
                     setRegion(value);
                     setSearch("");
                 }}
-                options={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
+                options={allRegions}
             />
         </section>
     );
