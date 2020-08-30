@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import http from "./services/httpService";
-import Card from "./components/common/Card";
 import SearchBox from "./components/common/SeachBox";
+import Countries from "./components/Countries";
 import { filterByString } from "./utils/filterMethods";
 
 const apiEndpoint = "https://restcountries.eu/rest/v2/all";
@@ -26,15 +26,7 @@ function App() {
                 <section className="l-flex">
                     <SearchBox placeholder="Search for a country..." onSearch={setSearch} />
                 </section>
-                <section className="l-grid country-container">
-                    {filteredCountries.map((country) => (
-                        <Card
-                            key={country.alpha3Code}
-                            display={["population", "region", "capital"]}
-                            country={country}
-                        />
-                    ))}
-                </section>
+                <Countries countries={filteredCountries} />
             </main>
         </div>
     );
