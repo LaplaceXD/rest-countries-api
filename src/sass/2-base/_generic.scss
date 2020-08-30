@@ -5,6 +5,13 @@
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    @include centered-container(90%);
+}
+
+.field-container {
+
+}
+
+.country-container {
+    @include centered-container(80%);
 }

@@ -1,0 +1,4 @@
+@mixin centered-container($width) {
+    width: $width;
+    margin: auto;
+}
