@@ -5,6 +5,15 @@
     min-height: 100vh;
 }
 
+input,
+select {
+    border-radius: 4px;
+    background-color: $element-color;
+    font-family: $font-family;
+    color: $input-color;
+    border: none;
+}
+
 .container {
     @include centered-container(90%);
 }

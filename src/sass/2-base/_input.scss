@@ -1,11 +1,4 @@
 input {
-    border: none;
-    border-radius: 4px;
-    background-color: $element-color;
-    font-family: $font-family;
-    color: $input-color;
-    font-size: 1rem;
-
     &::placeholder {
         color: $input-color;
     }
