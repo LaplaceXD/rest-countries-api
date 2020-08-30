@@ -19,7 +19,11 @@ function App() {
     return (
         <div>
             {countries.map((country) => (
-                <Card key={country.alpha3Code} country={country} />
+                <Card
+                    key={country.alpha3Code}
+                    display={["population", "region", "capital"]}
+                    country={country}
+                />
             ))}
         </div>
     );
