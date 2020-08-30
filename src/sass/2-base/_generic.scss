@@ -14,11 +14,3 @@ select {
     border: none;
     font-size: 1rem;
 }
-
-.container {
-    @include centered-container(90%);
-}
-
-.country-container {
-    @include centered-container(80%);
-}
