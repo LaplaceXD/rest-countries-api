@@ -1,0 +1,12 @@
+.dark {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.dark__icon {
+    margin-right: 1em;
+}
