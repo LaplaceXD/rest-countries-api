@@ -13,13 +13,16 @@ const types = {
 
 function SearchBox({ placeholder, onSearch, value }) {
     return (
-        <input
-            type="text"
-            value={value}
-            placeholder={placeholder}
-            className="search-box"
-            onChange={(e) => onSearch(e.currentTarget.value)}
-        />
+        <div className="search">
+            <i className="fas fa-search search__icon"></i>
+            <input
+                type="text"
+                value={value}
+                placeholder={placeholder}
+                className="search__box"
+                onChange={(e) => onSearch(e.currentTarget.value)}
+            />
+        </div>
     );
 }
 
