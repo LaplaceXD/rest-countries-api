@@ -1,7 +1,14 @@
 / linguist-vendored=true
+/webpack.config.js linguist-vendored=true
+/package.json linguist-vendored=true
+/package-lock.json linguist-vendored=true
+/README.md linguist-vendored=true
+/style-guide.md linguist-vendored=true
+
 /src/*.js linguist-vendored=false
 /src/*.jsx linguist-vendored=false
 /src/*.html linguist-vendored=false
 /src/sass/*.scss linguist-vendored=false
 
 *.scss linguist-language=scss
+*.jsx linguist-language=js
