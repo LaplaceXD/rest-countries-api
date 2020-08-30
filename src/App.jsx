@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function App() {
+
     return <h1>Hello World</h1>;
 }
 
