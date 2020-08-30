@@ -2,6 +2,7 @@
     background-color: $background-color;
     @include get-font(light, detail);
     color: $text-color;
+    min-height: 100vh;
 }
 
 .container {
@@ -9,7 +10,6 @@
 }
 
 .field-container {
-
 }
 
 .country-container {

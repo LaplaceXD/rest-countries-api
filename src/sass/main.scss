@@ -5,10 +5,12 @@
 @import "./1-utils/breakpoints";
 @import "./1-utils/typography";
 @import "./1-utils/themes";
+@import "./1-utils/layout";
 
 @import "./2-base/resets";
 @import "./2-base/generic";
 
 @import "./3-modules/card";
+@import "./3-modules/search-box";
 
 @import "./4-layout/grid";
