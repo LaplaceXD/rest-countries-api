@@ -3,7 +3,7 @@ import { filterDetails } from "./../../utils/filterMethods";
 
 function Card({ country, display }) {
     const { name, flag, alpha3code: id } = country;
-    const details = filterDetails(country, display);
+    const details = filterDetails(country, display).reverse();
 
     return (
         <div className="card">
@@ -14,7 +14,7 @@ function Card({ country, display }) {
                 </li>
                 {details.map(({ value, key }) => (
                     <li key={id + key} className="card__detail">
-                        <span className="card__detail--bold">{`${key}: `}</span>
+                        <span className="card__detail--identifier">{`${key}: `}</span>
                         {value}
                     </li>
                 ))}
