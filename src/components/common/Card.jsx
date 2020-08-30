@@ -1,8 +1,8 @@
 import React from "react";
-import { filterDetails } from './../../utils/filterMethods';
+import { filterDetails } from "./../../utils/filterMethods";
 
 function Card({ country, display }) {
-    const { name, flag } = country;
+    const { name, flag, alpha3code: id } = country;
     const details = filterDetails(country, display);
 
     return (
@@ -11,8 +11,8 @@ function Card({ country, display }) {
             <h2 className="card__title">{name}</h2>
             <ul className="card__details">
                 {details.map(({ value, key }) => (
-                    <li>
-                        <span>{key}</span>
+                    <li key={id + key} className="card__detail">
+                        <span className="card__detail--bold">{`${key}: `}</span>
                         {value}
                     </li>
                 ))}
