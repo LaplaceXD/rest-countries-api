@@ -1,0 +1,7 @@
+/ linguist-vendored=true
+/src/*.js linguist-vendored=false
+/src/*.jsx linguist-vendored=false
+/src/*.html linguist-vendored=false
+/src/sass/*.scss linguist-vendored=false
+
+*.scss linguist-language=scss
