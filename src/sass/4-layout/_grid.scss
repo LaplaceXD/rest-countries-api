@@ -1,9 +1,9 @@
 [class*="l-"] {
-    width: 100vw;
+    width: 90%;
+    margin: auto;
 }
 
 .l-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 24px;
+    grid-gap: 64px;
 }

@@ -1,0 +1,10 @@
+.main {
+    background-color: $background-color;
+    @include get-font(light, detail);
+    color: $text-color;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
