@@ -9,6 +9,7 @@ function App() {
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [search, setSearch] = useState("");
     const [region, setRegion] = useState("");
+    const [darkMode, setDarkMode] = useState(true);
 
     async function loadCountries() {
         const { data } = await getCountries();
@@ -26,19 +27,19 @@ function App() {
 
     useEffect(() => {
         loadCountries();
-    }, [])
+    }, []);
 
     useEffect(() => {
         filterCountries();
     }, [search, region]);
 
     return (
-        <div className="main">
+        <div className={`main ${darkMode ? "" : "light"}`}>
             <header>
                 <div className="header-container l-flex-reversed">
                     <h1>Where in the world?</h1>
-                    <div className="dark">
-                        <i className="far fa-moon dark__icon" />
+                    <div className="dark" onClick={() => setDarkMode(!darkMode)}>
+                        <i className={`${darkMode ? "fas" : "far"} fa-moon dark__icon`} />
                         <p className="dark__text">Dark Mode</p>
                     </div>
                 </div>
