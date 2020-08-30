@@ -1,4 +1,12 @@
 import React from "react";
+import { PropTypes } from 'prop-types';
+
+const types = {
+    placeholder: PropTypes.string.isRequired,
+    onInputChange: PropTypes.func.isRequired,
+    options: PropTypes.array.isRequired,
+    value: PropTypes.string,
+};
 
 function SelectField({ placeholder, options, value, onInputChange }) {
     return (
@@ -10,5 +18,7 @@ function SelectField({ placeholder, options, value, onInputChange }) {
         </select>
     );
 }
+
+SelectField.propTypes = types;
 
 export default SelectField;
