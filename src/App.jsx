@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { getCountries } from "./services/countriesService";
 import { filterByString, filterByCriteria } from "./utils/filterMethods";
-import { filterReducer } from "./hooks/reducer/filterReducer";
+import { filterReducer } from "./components/hooks/filterReducer";
 import Header from "./components/Header";
 import FilterInputs from "./components/FilterInputs";
-import Countries from "./components/Countries";
+import Countries from "./components/templates/Countries";
 
 const filterDefaults = { search: "", region: "" };
 

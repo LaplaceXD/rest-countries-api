@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "./common/Card";
-import { filterByKeys } from './../utils/filterMethods';
+import Card from "../common/Card";
+import { filterByKeys } from '../../utils/filterMethods';
 
 const defaultProps = {
     id: "alpha3Code",
