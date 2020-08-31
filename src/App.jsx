@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
+import { getCountries } from "./services/countriesService";
+import { filterByString, filterByCriteria } from "./utils/filterMethods";
+import { filterReducer } from "./hooks/reducer/filterReducer";
 import Header from "./components/Header";
 import FilterInputs from "./components/FilterInputs";
 import Countries from "./components/Countries";
-import { getCountries } from "./services/countriesService";
-import { filterByString, filterByCriteria } from "./utils/filterMethods";
+
+const filterDefaults = { search: "", region: "" };
 
 function App() {
     const [countries, setCountries] = useState([]);
+    const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
-    const [search, setSearch] = useState("");
-    const [region, setRegion] = useState("");
     const [darkMode, setDarkMode] = useState(true);
 
     async function loadCountries() {
@@ -19,6 +21,8 @@ function App() {
     }
 
     function filterCountries() {
+        const { search, region } = filter;
+
         const filtered = search
             ? filterByString(countries, "name", search)
             : filterByCriteria(countries, "region", region);
@@ -32,13 +36,13 @@ function App() {
 
     useEffect(() => {
         filterCountries();
-    }, [search, region]);
+    }, [filter]);
 
     return (
         <div className={`main-container ${darkMode ? "" : "light"}`}>
             <Header toggleData={[darkMode, setDarkMode]} />
             <main className="container">
-                <FilterInputs searchData={[search, setSearch]} regionData={[region, setRegion]} />
+                <FilterInputs inputData={[filter, dispatchFilter]} />
                 <Countries countries={filteredCountries} />
             </main>
         </div>

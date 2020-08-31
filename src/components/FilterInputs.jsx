@@ -5,27 +5,25 @@ import { getRegions } from "../services/countriesService";
 
 const allRegions = getRegions();
 
-function FilterInputs({ searchData, regionData }) {
-    const [search, setSearch] = searchData;
-    const [region, setRegion] = regionData;
+function FilterInputs({ inputData }) {
+    const [filter, dispatchFilter] = inputData;
+    const { search, region } = filter;
+
+    function handleFilter(type, value) {
+        dispatchFilter({ type, value });
+    }
 
     return (
         <section className="l-flex">
             <SearchBox
                 placeholder="Search for a country..."
                 value={search}
-                onSearch={(value) => {
-                    setSearch(value);
-                    setRegion("");
-                }}
+                onSearch={(value) => handleFilter("search", value)}
             />
             <SelectField
                 placeholder="Filter By Region"
                 value={region}
-                onInputChange={(value) => {
-                    setRegion(value);
-                    setSearch("");
-                }}
+                onInputChange={(value) => handleFilter("region", value)}
                 options={allRegions}
             />
         </section>
