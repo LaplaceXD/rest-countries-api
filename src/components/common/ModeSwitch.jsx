@@ -18,6 +18,6 @@ function ModeSwitch({ toggleData, label, icon, ...rest }) {
     );
 }
 
-ModeSwitch.PropTypes = types;
+ModeSwitch.propTypes = types;
 
 export default ModeSwitch;
