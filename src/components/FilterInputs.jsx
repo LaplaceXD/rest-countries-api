@@ -5,7 +5,7 @@ import { getRegions } from "../services/countriesService";
 
 const allRegions = getRegions();
 
-function FilterInputs({ search: searchData, region: regionData }) {
+function FilterInputs({ searchData, regionData }) {
     const [search, setSearch] = searchData;
     const [region, setRegion] = regionData;
 

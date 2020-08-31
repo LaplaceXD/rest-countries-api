@@ -7,11 +7,9 @@ const types = {
     icon: PropTypes.string,
 }
 
-function ModeSwitch({ toggleData, label, icon, ...rest }) {
-    const [toggleValue, onToggle] = toggleData;
-
+function ModeSwitch({ value, onToggle, label, icon, ...rest }) {
     return (
-        <div {...rest} onClick={() => onToggle(!toggleValue)}>
+        <div {...rest} onClick={() => onToggle(!value)}>
             <i className={icon} />
             <p>{label}</p>
         </div>

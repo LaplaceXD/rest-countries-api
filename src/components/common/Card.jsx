@@ -9,7 +9,6 @@ const types = {
 };
 
 function Card({ items, name, img, id }) {
-
     return (
         <div className="card">
             <img src={img} alt={name} className="card__img" />

@@ -38,7 +38,7 @@ function App() {
         <div className={`main-container ${darkMode ? "" : "light"}`}>
             <Header toggleData={[darkMode, setDarkMode]} />
             <main className="container">
-                <FilterInputs search={[search, setSearch]} region={[region, setRegion]} />
+                <FilterInputs searchData={[search, setSearch]} regionData={[region, setRegion]} />
                 <Countries countries={filteredCountries} />
             </main>
         </div>
