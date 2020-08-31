@@ -1,5 +1,5 @@
 import React from "react";
-import { filterDetails } from "./../../utils/filterMethods";
+import { filterByKeys } from "./../../utils/filterMethods";
 import { PropTypes } from "prop-types";
 
 const types = {
@@ -11,7 +11,7 @@ const types = {
 };
 
 function Card({ item, display, name, img, id }) {
-    const details = filterDetails(item, display).reverse();
+    const details = filterByKeys(item, display).reverse();
 
     return (
         <div className="card">

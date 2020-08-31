@@ -1,4 +1,11 @@
 import React from "react";
+import { PropTypes } from 'prop-types';
+
+const types = {
+    toggleData: PropTypes.array.isRequired,
+    label: PropTypes.string,
+    icon: PropTypes.string,
+}
 
 function ModeSwitch({ toggleData, label, icon, ...rest }) {
     const [toggleValue, onToggle] = toggleData;
@@ -10,5 +17,7 @@ function ModeSwitch({ toggleData, label, icon, ...rest }) {
         </div>
     );
 }
+
+ModeSwitch.PropTypes = types;
 
 export default ModeSwitch;

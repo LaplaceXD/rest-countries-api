@@ -1,4 +1,4 @@
-export function filterDetails(objToFilter, keyFilter) {
+export function filterByKeys(objToFilter, keyFilter) {
     return Object.keys(objToFilter)
         .filter((key) => keyFilter.includes(key))
         .reduce((details, key) => {
