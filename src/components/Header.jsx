@@ -5,17 +5,17 @@ const defaultProps = {
     label: "Where in the world?",
 };
 
-function Header({ label, toggleData }) {
-    const [toggleValue, onToggle] = toggleData;
+function Header({ label, darkModeData }) {
+    const [darkMode, onDarkModeToggle] = darkModeData;
 
     return (
         <header>
             <div className="header-container l-flex-reversed">
                 <h1>{label}</h1>
                 <ModeSwitch
-                    value={toggleValue}
-                    onToggle={onToggle}
-                    icon={`${toggleValue ? "fas" : "far"} fa-moon dark__icon`}
+                    value={darkMode}
+                    onToggle={onDarkModeToggle}
+                    icon={`${darkMode ? "fas" : "far"} fa-moon dark__icon`}
                     label="Dark Mode"
                     className="dark"
                 />

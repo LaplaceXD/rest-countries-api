@@ -18,8 +18,8 @@ function App() {
 
     return (
         <div className={`main-container ${darkMode ? "" : "light"}`}>
-            <Header toggleData={[darkMode, setDarkMode]} />
-            <CountryCards countries={countries}/>
+            <Header darkModeData={[darkMode, setDarkMode]} />
+            <CountryCards countries={countries} />
         </div>
     );
 }
