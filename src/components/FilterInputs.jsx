@@ -5,9 +5,9 @@ import { getRegions } from "../services/countriesService";
 
 const allRegions = getRegions();
 
-function FilterInputs({ search: searchInfo, region: regionInfo }) {
-    const [search, setSearch] = searchInfo;
-    const [region, setRegion] = regionInfo;
+function FilterInputs({ search: searchData, region: regionData }) {
+    const [search, setSearch] = searchData;
+    const [region, setRegion] = regionData;
 
     return (
         <section className="l-flex">

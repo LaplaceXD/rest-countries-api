@@ -1,6 +1,10 @@
 import React from "react";
 import ModeSwitch from "./common/ModeSwitch";
 
+const defaultProps = {
+    label: "Where in the world?",
+}
+
 function Header({ label, toggleData }) {
     const [toggleValue] = toggleData;
 
@@ -18,5 +22,7 @@ function Header({ label, toggleData }) {
         </header>
     );
 }
+
+Header.defaultProps = defaultProps;
 
 export default Header;
