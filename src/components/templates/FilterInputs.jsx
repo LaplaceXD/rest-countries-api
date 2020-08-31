@@ -9,7 +9,7 @@ function FilterInputs({ inputData }) {
     const [filter, dispatchFilter] = inputData;
     const { search, region } = filter;
 
-    function handleFilter(type, value) {
+    function handleFilter({ name: type, value}) {
         dispatchFilter({ type, value });
     }
 
@@ -18,12 +18,14 @@ function FilterInputs({ inputData }) {
             <SearchBox
                 placeholder="Search for a country..."
                 value={search}
-                onSearch={(value) => handleFilter("search", value)}
+                name="search"
+                onSearch={handleFilter}
             />
             <SelectField
                 placeholder="Filter By Region"
                 value={region}
-                onInputChange={(value) => handleFilter("region", value)}
+                name="region"
+                onInputChange={handleFilter}
                 options={allRegions}
             />
         </section>
