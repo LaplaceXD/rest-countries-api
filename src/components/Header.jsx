@@ -1,5 +1,5 @@
 import React from "react";
-import ModeSwitch from "./common/ModeSwitch";
+import ModeSwitch from "./templates/common/ModeSwitch";
 
 const defaultProps = {
     label: "Where in the world?",

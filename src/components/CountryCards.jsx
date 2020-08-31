@@ -21,6 +21,10 @@ function CountryCards({ countries }) {
     }
 
     useEffect(() => {
+        setFilteredCountries(countries);
+    }, [countries])
+
+    useEffect(() => {
         filterCountries();
     }, [filter]);
 

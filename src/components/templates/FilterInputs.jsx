@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBox from "./common/SearchBox";
 import SelectField from "./common/SelectField";
-import { getRegions } from "../services/countriesService";
+import { getRegions } from "../../services/countriesService";
 
 const allRegions = getRegions();
 

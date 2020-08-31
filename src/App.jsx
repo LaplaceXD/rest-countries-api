@@ -10,7 +10,6 @@ function App() {
     async function loadCountries() {
         const { data } = await getCountries();
         setCountries(data);
-        setFilteredCountries(data);
     }
 
     useEffect(() => {
