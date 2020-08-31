@@ -5,15 +5,19 @@
     min-height: 100vh;
 }
 
-.container,
+.cards-container,
 .header-container {
     @include centered-container(91.5%);
 }
 
 .country-container {
-    @include centered-container(80%);
+    @include centered-container(77%);
 }
 
 .header-container {
-    padding: 1.85em 0;
+    padding: 1.92em 0;
+}
+
+.cards-container {
+    padding: 1.55em 0;
 }

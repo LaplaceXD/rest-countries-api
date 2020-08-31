@@ -29,7 +29,7 @@ function CountryCards({ countries }) {
     }, [filter]);
 
     return (
-        <main className="container">
+        <main className="cards-container">
             <FilterInputs inputData={[filter, dispatchFilter]} />
             <Countries countries={filteredCountries} />
         </main>
