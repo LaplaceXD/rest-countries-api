@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBox from "./common/SeachBox";
+import SearchBox from "./common/SearchBox";
 import SelectField from "./common/SelectField";
 import { getRegions } from "../services/countriesService";
 
