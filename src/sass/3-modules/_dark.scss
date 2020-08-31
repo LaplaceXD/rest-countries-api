@@ -1,6 +1,11 @@
 .dark {
     display: flex;
     align-items: center;
+    padding-top: 2px;
+
+    p {
+        font-size: 0.78rem;
+    }
 
     &:hover {
         cursor: pointer;
@@ -9,4 +14,5 @@
 
 .dark__icon {
     margin-right: 1em;
+    font-size: 0.7em;
 }

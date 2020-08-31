@@ -2,7 +2,8 @@ import React from "react";
 import { PropTypes } from 'prop-types';
 
 const types = {
-    toggleData: PropTypes.array.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    value: PropTypes.bool.isRequired,
     label: PropTypes.string,
     icon: PropTypes.string,
 }

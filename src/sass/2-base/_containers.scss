@@ -7,7 +7,7 @@
 
 .container,
 .header-container {
-    @include centered-container(90%);
+    @include centered-container(91.5%);
 }
 
 .country-container {
@@ -15,5 +15,5 @@
 }
 
 .header-container {
-    padding: 2em 0;
+    padding: 1.85em 0;
 }
