@@ -9,7 +9,7 @@ function FilterInputs({ inputData }) {
     const [filter, dispatchFilter] = inputData;
     const { search, region } = filter;
 
-    function handleFilter({ name: type, value}) {
+    function handleFilter({ name: type, value }) {
         dispatchFilter({ type, value });
     }
 
