@@ -1,6 +1,9 @@
 const PATH = require("path");
+const WEBPACK = require("webpack");
 const HTML_WEBPACK_PLUGIN = require("html-webpack-plugin");
 const BABEL_MINIFY_WEBPACK_PLUGIN = require("babel-minify-webpack-plugin");
+const MINI_CSS_EXTRACT_PLUGIN = require("mini-css-extract-plugin");
+const AUTOPREFIXER = require("autoprefixer");
 
 module.exports = {
     entry: "./src/index.js",
@@ -18,7 +21,7 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 exclude: /node_modules/,
-                use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+                use: [MINI_CSS_EXTRACT_PLUGIN.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
             { test: /\.html$/, use: "html-loader" },
             { test: /\.(png|gif|jpe?g|svg)$/, use: "file-loader" },
@@ -35,5 +38,14 @@ module.exports = {
                 comments: false,
             }
         ),
+        new WEBPACK.LoaderOptionsPlugin({
+            options: {
+                postcss: [AUTOPREFIXER()],
+            },
+        }),
+        new MINI_CSS_EXTRACT_PLUGIN({
+            filename: "[name].[contenthash].css",
+            chunkFilename: "[name].[contenthash].css",
+        }),
     ],
 };

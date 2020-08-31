@@ -42,13 +42,9 @@
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0"
     },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
-    },
-    "broswersList": [
-        "last 4 versions",
+    "browsersList": [
+        "last 10 versions",
+        "> 1%",
         "not dead",
         "iOS >= 9"
     ]
