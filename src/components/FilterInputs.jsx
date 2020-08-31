@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SearchBox from "./common/SeachBox";
 import SelectField from "./common/SelectField";
 import { getRegions } from "../services/countriesService";
