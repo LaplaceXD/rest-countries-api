@@ -1,17 +1,14 @@
 import React from "react";
-import { filterByKeys } from "./../../utils/filterMethods";
 import { PropTypes } from "prop-types";
 
 const types = {
-    item: PropTypes.object.isRequired,
-    display: PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
     name: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
 };
 
-function Card({ item, display, name, img, id }) {
-    const details = filterByKeys(item, display).reverse();
+function Card({ items, name, img, id }) {
 
     return (
         <div className="card">
@@ -20,7 +17,7 @@ function Card({ item, display, name, img, id }) {
                 <li>
                     <h2 className="card__title">{name}</h2>
                 </li>
-                {details.map(({ value, key }) => (
+                {items.map(({ value, key }) => (
                     <li key={id + key} className="card__detail">
                         <span className="card__detail--identifier">{`${key}: `}</span>
                         {value}

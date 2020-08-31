@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./common/Card";
+import { filterByKeys } from './../utils/filterMethods';
 
 const defaultProps = {
     id: "alpha3Code",
@@ -13,8 +14,7 @@ function Countries({ countries, display, id }) {
                 <Card
                     key={country[id]}
                     id={country[id]}
-                    display={display}
-                    item={country}
+                    items={filterByKeys(country, display).reverse()}
                     name={country.name}
                     img={country.flag}
                 />
