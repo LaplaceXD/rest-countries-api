@@ -3,15 +3,11 @@ import SearchBox from "./common/SeachBox";
 import SelectField from "./common/SelectField";
 import { getRegions } from "../services/countriesService";
 
+const allRegions = getRegions();
+
 function FilterInputs({ search: searchInfo, region: regionInfo }) {
     const [search, setSearch] = searchInfo;
     const [region, setRegion] = regionInfo;
-    const [allRegions, setAllRegions] = useState([]);
-
-    useEffect(() => {
-        const regions = getRegions();
-        setAllRegions(regions);
-    }, []);
 
     return (
         <section className="l-flex">
