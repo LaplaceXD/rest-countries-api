@@ -9,18 +9,22 @@ const types = {
     id: PropTypes.string.isRequired,
 };
 
-function Card({ items, label, img, id }) {
-    const classes = {
-        ul: "card__details",
-        li: "card__detail",
-        span: "card__detail--identifier",
-        h2: "card__title",
-    };
+const classes = {
+    div: "card",
+    img: "card__img",
+    ul: "card__details",
+    li: "card__detail",
+    span: "card__detail--identifier",
+    h2: "card__title",
+};
+
+function Card({ items, label, image, id }) {
+    const { div, img, ...itemsList } = classes;
 
     return (
-        <div className="card">
-            <img src={img} alt={name} className="card__img" />
-            <ItemsList classes={classes} items={items} label={label} id={id} />
+        <div className={div}>
+            <img src={image} alt={name} className={img} />
+            <ItemsList classes={itemsList} items={items} label={label} id={id} />
         </div>
     );
 }

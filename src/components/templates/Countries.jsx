@@ -16,7 +16,7 @@ function Countries({ countries, display, id }) {
                     id={country[id]}
                     items={filterByKeys(country, display).reverse()}
                     label={country.name}
-                    img={country.flag}
+                    image={country.flag}
                 />
             ))}
         </section>
