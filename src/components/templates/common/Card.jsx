@@ -18,13 +18,13 @@ const listClassNames = {
     h2: "card__title",
 };
 
-function Card({ items, label, image, id }) {
+function Card({ items, label, image }) {
     const { div, img, ...itemsList } = listClassNames;
 
     return (
         <div className={div}>
             <img src={image} alt={name} className={img} />
-            <ItemsList className={itemsList} items={items} label={label} id={id} />
+            <ItemsList className={itemsList} items={items} label={label} />
         </div>
     );
 }

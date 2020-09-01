@@ -13,7 +13,6 @@ function Countries({ countries, display, id }) {
             {countries.map((country) => (
                 <Card
                     key={country[id]}
-                    id={country[id]}
                     items={filterByKeys(country, display).reverse()}
                     label={country.name}
                     image={country.flag}
