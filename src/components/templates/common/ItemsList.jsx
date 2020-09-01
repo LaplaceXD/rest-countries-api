@@ -11,7 +11,7 @@ const types = {
     spanned: PropTypes.bool,
 };
 
-function ItemsList({ items, label, classes, spanned }) {
+function ItemsList({ items, label, classes, spanned, id }) {
     const { ul, li, h2, span } = classes;
 
     function renderLabel(label) {
@@ -28,7 +28,7 @@ function ItemsList({ items, label, classes, spanned }) {
         const { key, value } = item;
 
         return (
-            <li key={withSpan ? item : key + value} className={li}>
+            <li key={id + (withSpan ? key : item)} className={li}>
                 {withSpan ? <span className={span}>{`${key}: `}</span> : null}
                 {withSpan ? value : item}
             </li>
