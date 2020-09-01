@@ -1,18 +1,20 @@
 import React from "react";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
 
 const types = {
     onToggle: PropTypes.func.isRequired,
-    value: PropTypes.bool.isRequired,
     label: PropTypes.string,
     icon: PropTypes.string,
-}
+    className: PropTypes.object,
+};
 
-function ModeSwitch({ value, onToggle, label, icon, ...rest }) {
+function ModeSwitch({ onToggle, label, icon, className }) {
+    const { i, p, div } = className;
+
     return (
-        <div {...rest} onClick={() => onToggle(!value)}>
-            <i className={icon} />
-            <p>{label}</p>
+        <div className={div} onClick={onToggle}>
+            <i className={`${icon} ${i}`} />
+            <p className={p}>{label}</p>
         </div>
     );
 }

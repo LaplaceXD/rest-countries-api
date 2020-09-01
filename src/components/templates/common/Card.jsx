@@ -5,11 +5,11 @@ import { PropTypes } from "prop-types";
 const types = {
     items: PropTypes.array.isRequired,
     label: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
 };
 
-const classes = {
+const listClassNames = {
     div: "card",
     img: "card__img",
     ul: "card__details",
@@ -19,12 +19,12 @@ const classes = {
 };
 
 function Card({ items, label, image, id }) {
-    const { div, img, ...itemsList } = classes;
+    const { div, img, ...itemsList } = listClassNames;
 
     return (
         <div className={div}>
             <img src={image} alt={name} className={img} />
-            <ItemsList classes={itemsList} items={items} label={label} id={id} />
+            <ItemsList className={itemsList} items={items} label={label} id={id} />
         </div>
     );
 }

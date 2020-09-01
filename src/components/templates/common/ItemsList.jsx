@@ -7,12 +7,12 @@ const defaultProps = {
 
 const types = {
     label: PropTypes.string.isRequired,
-    classes: PropTypes.object.isRequired,
+    className: PropTypes.object,
     spanned: PropTypes.bool,
 };
 
-function ItemsList({ items, label, classes, spanned, id }) {
-    const { ul, li, h2, span } = classes;
+function ItemsList({ items, label, className, spanned, id }) {
+    const { ul, li, h2, span } = className;
 
     function renderLabel(label) {
         if (!label) return null;
