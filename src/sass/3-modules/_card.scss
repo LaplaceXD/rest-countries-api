@@ -28,6 +28,6 @@
 
     &--identifier {
         text-transform: capitalize;
-        @include get-weight(medium);
+        @include get-font-weight(medium);
     }
 }
