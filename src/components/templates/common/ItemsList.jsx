@@ -14,11 +14,21 @@ const types = {
 function ItemsList({ items, label, classes, spanned }) {
     const { ul, li, h2, span } = classes;
 
+    function renderLabel(label) {
+        if (!label) return null;
+
+        return (
+            <li>
+                <h2 className={h2}>{label}</h2>
+            </li>
+        );
+    }
+
     function renderItem(item, withSpan) {
         const { key, value } = item;
 
         return (
-            <li key={item} className={li}>
+            <li key={withSpan ? item : key + value} className={li}>
                 {withSpan ? <span className={span}>{`${key}: `}</span> : null}
                 {withSpan ? value : item}
             </li>
@@ -27,9 +37,7 @@ function ItemsList({ items, label, classes, spanned }) {
 
     return (
         <ul className={ul}>
-            <li>
-                <h2 className={h2}>{label}</h2>
-            </li>
+            {renderLabel(label)}
             {items.map((item) => renderItem(item, spanned))}
         </ul>
     );

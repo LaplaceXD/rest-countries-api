@@ -1,28 +1,25 @@
 import React from "react";
+import ItemsList from "./ItemsList";
 import { PropTypes } from "prop-types";
 
 const types = {
     items: PropTypes.array.isRequired,
-    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
 };
 
-function Card({ items, name, img, id }) {
+function Card({ items, label, img }) {
+    const classes = {
+        ul: "card__details",
+        li: "card__detail",
+        span: "card__detail--identifier",
+        h2: "card__title",
+    };
+
     return (
         <div className="card">
             <img src={img} alt={name} className="card__img" />
-            <ul className="card__details">
-                <li>
-                    <h2 className="card__title">{name}</h2>
-                </li>
-                {items.map(({ value, key }) => (
-                    <li key={id + key} className="card__detail">
-                        <span className="card__detail--identifier">{`${key}: `}</span>
-                        {value}
-                    </li>
-                ))}
-            </ul>
+            <ItemsList classes={classes} items={items} label={label} />
         </div>
     );
 }
