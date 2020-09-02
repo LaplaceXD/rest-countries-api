@@ -8,22 +8,11 @@ const types = {
     image: PropTypes.string.isRequired,
 };
 
-const listClassNames = {
-    div: "card",
-    img: "card__img",
-    ul: "card__details",
-    li: "card__detail",
-    span: "card__detail--identifier",
-    h2: "card__title",
-};
-
 function Card({ items, label, image }) {
-    const { div, img, ...itemsList } = listClassNames;
-
     return (
-        <div className={div}>
-            <img src={image} alt={name} className={img} />
-            <ItemsList className={itemsList} items={items} label={label} />
+        <div className="card">
+            <img src={image} alt={name} className="card__img" />
+            <ItemsList classBlock={"card"} items={items} label={label} />
         </div>
     );
 }

@@ -2,43 +2,47 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 const defaultProps = {
-    spanned: true,
+    withIdentifier: true,
 };
 
 const types = {
     label: PropTypes.string.isRequired,
-    className: PropTypes.object,
-    spanned: PropTypes.bool,
+    classBlock: PropTypes.string,
+    withIdentifier: PropTypes.bool,
 };
 
-function ItemsList({ items, label, className, spanned }) {
-    const { ul, li, h2, span } = className;
+function ItemsList({ items, label, classBlock, withIdentifier }) {
+    function elementClass(element) {
+        if (!classBlock) return null;
+
+        return `${classBlock}__${element}`;
+    }
 
     function renderLabel(label) {
         if (!label) return null;
 
         return (
             <li>
-                <h2 className={h2}>{label}</h2>
+                <h2 className={elementClass("label")}>{label}</h2>
             </li>
         );
     }
 
-    function renderItem(item, withSpan) {
+    function renderItem(item) {
         const { key, value } = item;
 
         return (
-            <li key={withSpan ? key : item} className={li}>
-                {withSpan && <span className={span}>{`${key}: `}</span>}
-                {withSpan ? value : item}
+            <li key={withIdentifier ? key : item} className={elementClass("item")}>
+                {withIdentifier && <span className={elementClass("item--identifier")}>{`${key}: `}</span>}
+                {withIdentifier ? value : item}
             </li>
         );
     }
 
     return (
-        <ul className={ul}>
+        <ul className={elementClass("items")}>
             {renderLabel(label)}
-            {items.map((item) => renderItem(item, spanned))}
+            {items.map((item) => renderItem(item))}
         </ul>
     );
 }
