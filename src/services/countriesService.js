@@ -34,6 +34,15 @@ export async function loadCountries(fields, setCallback) {
     }
 }
 
+export async function loadCountry(name, fields, setCallback) {
+    try {
+        const { data } = await getCountry(name, fields);
+        setCallback(data);
+    } catch (ex) {
+        error.handle(ex);
+    }
+}
+
 export function getRegions() {
     return regions;
 }

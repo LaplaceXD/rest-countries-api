@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { loadCountry } from "../services/countriesService";
+
+const countryFields = [
+    "nativeName",
+    "population",
+    "region",
+    "subregion",
+    "capital",
+    "topLevelDomain",
+    "currencies",
+    "languages",
+    "borders",
+];
 
 function CountryProfile({ match, history }) {
-    const name = match.params.name;
+    const {
+        params: { name },
+    } = match;
+    const [country, setCountry] = useState([]);
+
+    useEffect(() => {
+        loadCountry(name, countryFields, setCountry);
+        console.log(country);
+    }, [country]);
 
     return (
         <main className="profile-container">
@@ -12,6 +33,7 @@ function CountryProfile({ match, history }) {
                     Back
                 </button>
             </Link>
+            <img />
         </main>
     );
 }
