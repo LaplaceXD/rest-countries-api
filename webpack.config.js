@@ -1,7 +1,7 @@
 const PATH = require("path");
 const WEBPACK = require("webpack");
 const HTML_WEBPACK_PLUGIN = require("html-webpack-plugin");
-const MINI_CSS_EXTRACT_PLUGIN = require('mini-css-extract-plugin');
+const MINI_CSS_EXTRACT_PLUGIN = require("mini-css-extract-plugin");
 const BABEL_MINIFY_WEBPACK_PLUGIN = require("babel-minify-webpack-plugin");
 const AUTOPREFIXER = require("autoprefixer");
 
@@ -10,6 +10,7 @@ module.exports = {
     output: {
         filename: "bundle.[hash].js",
         path: PATH.resolve(__dirname, "dist"),
+        publicPath: "/",
     },
     resolve: {
         modules: [__dirname, "src", "node_modules"],
@@ -27,6 +28,9 @@ module.exports = {
             { test: /\.(png|gif|jpe?g|svg)$/, use: "file-loader" },
         ],
     },
+    devServer: {
+        historyApiFallback: true,
+    },
     plugins: [
         new HTML_WEBPACK_PLUGIN({
             template: "./src/index.html",
@@ -34,7 +38,7 @@ module.exports = {
         }),
         new MINI_CSS_EXTRACT_PLUGIN({
             filename: "[name].[contenthash].css",
-            chunkFilename: "[name].[contenthash].css"
+            chunkFilename: "[name].[contenthash].css",
         }),
         new BABEL_MINIFY_WEBPACK_PLUGIN(
             {},

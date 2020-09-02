@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "./common/Card";
 import { Link } from "react-router-dom";
 import { filterByKeys } from "../../utils/filterMethods";
+import Card from "./common/Card";
 
 const defaultProps = {
     id: "alpha3Code",
@@ -12,7 +12,7 @@ function Countries({ countries, display, id }) {
     return (
         <section className="l-grid cards-container">
             {countries.map((country) => (
-                <Link to={`/${country.name}`}>
+                <Link to={`/country/${country.name}`}>
                     <Card
                         key={country[id]}
                         items={filterByKeys(country, display).reverse()}
