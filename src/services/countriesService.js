@@ -10,10 +10,12 @@ function createQueryString(fields) {
 }
 
 export function getCountries(fields) {
-    if (!fields) return http.get(apiEndpoint);
+    const apiAllEndpoint = `${apiEndpoint}/all`;
+
+    if (!fields) return http.get(apiAllEndpoint);
 
     const queryString = createQueryString(fields);
-    return http.get(apiEndpoint + queryString);
+    return http.get(apiAllEndpoint + queryString);
 }
 
 export function getCountry(name, fields) {
@@ -37,7 +39,7 @@ export async function loadCountries(fields, setCallback) {
 export async function loadCountry(name, fields, setCallback) {
     try {
         const { data } = await getCountry(name, fields);
-        setCallback(data);
+        setCallback(data[0]);
     } catch (ex) {
         error.handle(ex);
     }

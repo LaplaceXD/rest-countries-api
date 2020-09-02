@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { filterByKeys } from "../../utils/filterMethods";
+import { convertToKeyValue } from './../../utils/filterMethods';
 import Card from "./common/Card";
 
 const defaultProps = {
@@ -14,7 +14,7 @@ function Countries({ countries, display, id }) {
             {countries.map((country) => (
                 <Link key={country[id]} to={`/country/${country.name}`}>
                     <Card
-                        items={filterByKeys(country, display).reverse()}
+                        items={convertToKeyValue(country, display).reverse()}
                         label={country.name}
                         image={country.flag}
                     />

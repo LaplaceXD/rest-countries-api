@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadCountry } from "../services/countriesService";
+import { convertToKeyValue } from './../utils/filterMethods';
+import ItemsList from "./templates/common/ItemsList";
 
 const countryFields = [
     "nativeName",
+    "flag",
     "population",
     "region",
     "subregion",
@@ -14,6 +17,8 @@ const countryFields = [
     "borders",
 ];
 
+const firstListDisplay = ["nativeName", "population", "region", "subregion", "capital"];
+
 function CountryProfile({ match, history }) {
     const {
         params: { name },
@@ -22,18 +27,18 @@ function CountryProfile({ match, history }) {
 
     useEffect(() => {
         loadCountry(name, countryFields, setCountry);
-        console.log(country);
-    }, [country]);
+    }, []);
 
     return (
         <main className="profile-container">
             <Link to="/country">
-                <button>
+                <button onClick={() => console.log(country)}>
                     <i className="fa fa-arrow-left" />
                     Back
                 </button>
             </Link>
-            <img />
+            <img src={country.flag} alt={name} />
+            <ItemsList label={name} items={convertToKeyValue(country, firstListDisplay).reverse()} />
         </main>
     );
 }
