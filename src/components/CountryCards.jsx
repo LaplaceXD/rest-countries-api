@@ -6,7 +6,7 @@ import Countries from "./templates/Countries";
 
 const filterDefaults = { search: "", region: "" };
 
-function CountryCards() {
+function CountryCards({ countries }) {
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
 

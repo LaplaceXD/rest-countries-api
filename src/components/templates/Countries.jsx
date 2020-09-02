@@ -12,9 +12,8 @@ function Countries({ countries, display, id }) {
     return (
         <section className="l-grid cards-container">
             {countries.map((country) => (
-                <Link to={`/country/${country.name}`}>
+                <Link key={country[id]} to={`/country/${country.name}`}>
                     <Card
-                        key={country[id]}
                         items={filterByKeys(country, display).reverse()}
                         label={country.name}
                         image={country.flag}
