@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useReducer } from "react";
+import { useGetCountries } from './hooks/useGetCountries';
 import { filterByString, filterByCriteria } from "../utils/filterMethods";
 import { filterReducer } from "./hooks/filterReducer";
 import FilterInputs from "./templates/FilterInputs";
 import Countries from "./templates/Countries";
 
 const filterDefaults = { search: "", region: "" };
+const countryFields = ["name", "flag", "population", "region", "capital", "alpha3Code"];
 
-function CountryCards({ countries }) {
+function CountryCards() {
+    const countries = useGetCountries(countryFields);
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
 
@@ -22,7 +25,7 @@ function CountryCards({ countries }) {
 
     useEffect(() => {
         setFilteredCountries(countries);
-    }, [countries])
+    }, [countries]);
 
     useEffect(() => {
         filterCountries();

@@ -6,7 +6,6 @@ const types = {
     items: PropTypes.array.isRequired,
     label: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
 };
 
 const listClassNames = {
