@@ -9,10 +9,9 @@ const filterDefaults = { search: "", region: "" };
 function CountryCards({ countries }) {
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
+    const { search, region } = filter;
 
     function filterCountries() {
-        const { search, region } = filter;
-
         const filtered = search
             ? filterByString(countries, "name", search)
             : filterByCriteria(countries, "region", region);
@@ -20,9 +19,15 @@ function CountryCards({ countries }) {
         setFilteredCountries(filtered);
     }
 
-    useEffect(() => {
-        setFilteredCountries(countries);
-    }, [countries]);
+    // To prevent full re-render of this component, which
+    // makes it look like a slow reload
+    function deployCountriesList() {
+        if (!search && !region) {
+            return countries;
+        }
+
+        return filteredCountries;
+    }
 
     useEffect(() => {
         filterCountries();
@@ -31,7 +36,7 @@ function CountryCards({ countries }) {
     return (
         <main className="country-container">
             <FilterInputs inputData={[filter, dispatchFilter]} />
-            <Countries countries={filteredCountries} />
+            <Countries countries={deployCountriesList()} />
         </main>
     );
 }

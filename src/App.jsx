@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Switch, Redirect, Route } from "react-router-dom";
 import { useGetCountries } from "./components/hooks/useGetCountries";
@@ -11,12 +11,11 @@ const countryFields = ["name", "flag", "population", "region", "capital", "alpha
 
 function App() {
     const countries = useGetCountries(countryFields); // TODO: Cache the data to localStorage
-    const [darkMode, setDarkMode] = useState(true);
 
     return (
-        <div className={`main-container ${darkMode ? "" : "light"}`}>
+        <div className={`main-container`}>
             <ToastContainer />
-            <Header darkModeData={[darkMode, setDarkMode]} />
+            <Header />
             <Switch>
                 <Route path="/country/:name" component={CountryProfile} />
                 <Route

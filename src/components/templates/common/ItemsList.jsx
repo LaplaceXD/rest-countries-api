@@ -1,6 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import { classBlock } from "./../../../utils/classMethod";
+import { classBlock } from "../../../utils/styleMethods";
 
 const defaultProps = {
     withIdentifier: true,
