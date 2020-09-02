@@ -6,7 +6,8 @@ const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 const { apiEndpoint } = config;
 
 function createQueryString(fields) {
-    return fields.reduce((query, field) => query + field + ";", "?fields=");
+    const params = fields.join(";");
+    return `?fields=${params}`;
 }
 
 export function getCountries(fields) {

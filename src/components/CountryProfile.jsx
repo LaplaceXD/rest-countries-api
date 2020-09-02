@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadCountry } from "../services/countriesService";
+import { getDetails } from "../utils/verySpecialUtilsThatOnlyWorksForThisProject";
 import { convertToKeyValue } from "./../utils/filterMethods";
 import ItemsList from "./templates/common/ItemsList";
 
@@ -19,8 +20,9 @@ const countryFields = [
 
 const firstListDisplay = ["nativeName", "population", "region", "subregion", "capital"];
 const secondListDisplay = ["topLevelDomain", "currencies", "languages"];
+const keyParser = [0, "name", "name"];
 
-function CountryProfile({ match, history }) {
+function CountryProfile({ match }) {
     const {
         params: { name },
     } = match;
