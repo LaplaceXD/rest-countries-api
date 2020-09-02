@@ -1,0 +1,9 @@
+li {
+    font-size: 0.85rem;
+    margin-bottom: 0.35em;
+
+    span {
+        text-transform: capitalize;
+        @include get-font-weight(medium);
+    }
+}

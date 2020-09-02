@@ -17,17 +17,6 @@
 }
 
 .card__title {
-    font-size: 1.1rem;
     margin-top: -0.3em;
     margin-bottom: 0.9em;
-}
-
-.card__item {
-    font-size: 0.85rem;
-    margin-bottom: 0.35em;
-
-    &--identifier {
-        text-transform: capitalize;
-        @include get-font-weight(medium);
-    }
 }
