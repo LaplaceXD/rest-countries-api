@@ -1,5 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { classBlock } from "./../../../utils/classMethod";
 
 const defaultProps = {
     withIdentifier: true,
@@ -11,36 +12,37 @@ const types = {
     withIdentifier: PropTypes.bool,
 };
 
-function ItemsList({ items, label, classBlock, withIdentifier }) {
-    function elementClass(element) {
-        if (!classBlock) return null;
-
-        return `${classBlock}__${element}`;
-    }
+function ItemsList({ items, label, classBlock: block, withIdentifier }) {
+    const classElement = classBlock(block);
 
     function renderLabel(label) {
         if (!label) return null;
 
         return (
             <li>
-                <h2 className={elementClass("label")}>{label}</h2>
+                <h2 className={classElement("label")}>{label}</h2>
             </li>
         );
+    }
+
+    function renderIdentifier(key) {
+        const identifier = `${key}: `;
+        return <span className={classElement("item--identifier")}>{identifier}</span>;
     }
 
     function renderItem(item) {
         const { key, value } = item;
 
         return (
-            <li key={withIdentifier ? key : item} className={elementClass("item")}>
-                {withIdentifier && <span className={elementClass("item--identifier")}>{`${key}: `}</span>}
+            <li key={withIdentifier ? key : item} className={classElement("item")}>
+                {withIdentifier && renderIdentifier(key)}
                 {withIdentifier ? value : item}
             </li>
         );
     }
 
     return (
-        <ul className={elementClass("items")}>
+        <ul className={classElement("items")}>
             {renderLabel(label)}
             {items.map((item) => renderItem(item))}
         </ul>
