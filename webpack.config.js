@@ -1,7 +1,7 @@
 const PATH = require("path");
 const WEBPACK = require("webpack");
 const HTML_WEBPACK_PLUGIN = require("html-webpack-plugin");
-const MINI_CSS_EXTRACT_PLUGIN = require("mini-css-extract-plugin");
+// const MINI_CSS_EXTRACT_PLUGIN = require("mini-css-extract-plugin");
 const BABEL_MINIFY_WEBPACK_PLUGIN = require("babel-minify-webpack-plugin");
 const AUTOPREFIXER = require("autoprefixer");
 
@@ -12,6 +12,7 @@ module.exports = {
         path: PATH.resolve(__dirname, "dist"),
         publicPath: "/",
     },
+    watch: true,
     resolve: {
         modules: [__dirname, "src", "node_modules"],
         extensions: ["*", ".js", ".jsx"],
@@ -22,7 +23,7 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 exclude: /node_modules/,
-                use: [MINI_CSS_EXTRACT_PLUGIN.loader, "css-loader", "postcss-loader", "sass-loader"],
+                use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
             },
             { test: /\.html$/, use: "html-loader" },
             { test: /\.(png|gif|jpe?g|svg)$/, use: "file-loader" },
@@ -36,10 +37,10 @@ module.exports = {
             template: "./src/index.html",
             filename: "./index.html",
         }),
-        new MINI_CSS_EXTRACT_PLUGIN({
-            filename: "[name].[contenthash].css",
-            chunkFilename: "[name].[contenthash].css",
-        }),
+        // new MINI_CSS_EXTRACT_PLUGIN({
+        //     filename: "[name].[contenthash].css",
+        //     chunkFilename: "[name].[contenthash].css",
+        // }),
         new BABEL_MINIFY_WEBPACK_PLUGIN(
             {},
             {

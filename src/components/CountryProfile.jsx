@@ -5,11 +5,14 @@ function CountryProfile({ match, history }) {
     const name = match.params.name;
 
     return (
-        <>
+        <main className="profile-container">
             <Link to="/country">
-                <button>{name}</button>
+                <button>
+                    <i className="fa fa-arrow-left" />
+                    Back
+                </button>
             </Link>
-        </>
+        </main>
     );
 }
 

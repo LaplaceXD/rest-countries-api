@@ -18,6 +18,12 @@ $input: (
     light: hsl(0, 0%, 52%),
 );
 
+$background-color: var(--background-color);
+$input-color: var(--input-color);
+$element-color: var(--element-color);
+$text-color: var(--text-color);
+$shadow-color: var(--shadow-color);
+
 @function get-dark-variant($pallete) {
     @if not global-variable-exists($pallete) {
         @error "No existing pallete has a name of #{$pallete}.";

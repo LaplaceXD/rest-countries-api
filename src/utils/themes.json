@@ -3,12 +3,14 @@
         { "variable": "--background-color", "value": "hsl(207, 26%, 17%)" },
         { "variable": "--element-color", "value": "hsl(209, 23%, 22%)" },
         { "variable": "--input-color", "value": "hsl(0, 0%, 100%)" },
-        { "variable": "--text-color", "value": "hsl(0, 0%, 100%)" }
+        { "variable": "--text-color", "value": "hsl(0, 0%, 100%)" },
+        { "variable": "--shadow-color", "value": "hsl(0, 0%, 0%)" }
     ],
     "lightTheme": [
         { "variable": "--background-color", "value": "hsl(0, 0%, 98%)" },
         { "variable": "--element-color", "value": "hsl(0, 0%, 100%)" },
         { "variable": "--input-color", "value": "hsl(0, 0%, 52%)" },
-        { "variable": "--text-color", "value": "hsl(200, 15%, 8%)" }
+        { "variable": "--text-color", "value": "hsl(200, 15%, 8%)" },
+        { "variable": "--shadow-color", "value": "hsl(0, 0%, 52%)" }
     ]
 }

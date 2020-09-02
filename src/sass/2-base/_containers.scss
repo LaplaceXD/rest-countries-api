@@ -18,6 +18,11 @@
     padding: 1.55em 0;
 }
 
+.profile-container {
+    padding: 2.5em 0;
+    @include centered-container(85%);
+}
+
 .cards-container {
     @include centered-container(77%);
 }
