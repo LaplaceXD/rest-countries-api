@@ -1,9 +1,16 @@
-export function convertToKeyValue(objToFilter, wantedKeys) {
-    const availableKeys = Object.keys(objToFilter).filter((key) => wantedKeys.includes(key));
+export function getAvailableKeys(obj, wantedKeys) {
+    const keys = Object.keys(obj);
+
+    return wantedKeys.filter((key) => keys.includes(key));
+}
+
+export function convertToKeyValue(objToConvert, keys) {
+    const availableKeys = getAvailableKeys(objToConvert, keys);
+
     const filtered = availableKeys.reduce((items, key) => {
         items.push({
             key: key,
-            value: objToFilter[key],
+            value: objToConvert[key],
         });
 
         return items;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadCountry } from "../services/countriesService";
-import { convertToKeyValue } from './../utils/filterMethods';
+import { convertToKeyValue } from "./../utils/filterMethods";
 import ItemsList from "./templates/common/ItemsList";
 
 const countryFields = [
@@ -18,6 +18,7 @@ const countryFields = [
 ];
 
 const firstListDisplay = ["nativeName", "population", "region", "subregion", "capital"];
+const secondListDisplay = ["topLevelDomain", "currencies", "languages"];
 
 function CountryProfile({ match, history }) {
     const {
@@ -37,8 +38,12 @@ function CountryProfile({ match, history }) {
                     Back
                 </button>
             </Link>
-            <img src={country.flag} alt={name} />
-            <ItemsList label={name} items={convertToKeyValue(country, firstListDisplay).reverse()} />
+            <img src={country.flag} alt={name} className="profile__img" />
+            <ItemsList
+                label={name}
+                classBlock="profile"
+                items={convertToKeyValue(country, firstListDisplay)}
+            />
         </main>
     );
 }
