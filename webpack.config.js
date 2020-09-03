@@ -12,7 +12,6 @@ module.exports = {
         path: PATH.resolve(__dirname, "dist"),
         publicPath: "/",
     },
-    watch: true,
     resolve: {
         modules: [__dirname, "src", "node_modules"],
         extensions: ["*", ".js", ".jsx"],
