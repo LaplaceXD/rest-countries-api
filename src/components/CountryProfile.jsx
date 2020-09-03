@@ -60,15 +60,17 @@ function CountryProfile({ match }) {
             <ItemsList classBlock="profile" items={secondList} />
             {borders && (
                 <div className="borders">
-                    <h3 className="borders__label">Border Countries: </h3>
-                    {borders.map((border) => (
-                        <ButtonLink
-                            key={border}
-                            to={`/country/${border}`}
-                            label={border}
-                            classBlock="borders"
-                        />
-                    ))}
+                    <h3 className="borders__title">Border Countries: </h3>
+                    <div className="border__buttons">
+                        {borders.map((border) => (
+                            <ButtonLink
+                                key={border}
+                                to={`/country/${border}`}
+                                label={border}
+                                classBlock="borders"
+                            />
+                        ))}
+                    </div>
                 </div>
             )}
         </main>

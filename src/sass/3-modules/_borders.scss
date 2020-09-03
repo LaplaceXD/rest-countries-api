@@ -1,0 +1,25 @@
+.borders {
+    margin-top: 2.5em;
+}
+
+.borders__title {
+    grid-column: 1 / -1;
+    font-size: 1.03rem;
+    margin-bottom: 0.35em;
+    @include get-font-weight(light);
+}
+
+.borders__buttons {
+    display: flex;
+    grid-gap: 1em;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+}
+
+.borders__button {
+    border-radius: 1px;
+    padding: 0.66em 0;
+    margin: 1em 0.925em 0 0;
+    font-size: 0.7rem;
+    width: 30%;
+}
