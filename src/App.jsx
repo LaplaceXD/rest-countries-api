@@ -5,7 +5,7 @@ import { useGetCountries } from "./components/hooks/useGetCountries";
 import Header from "./components/Header";
 import CountryCards from "./components/CountryCards";
 import CountryProfile from "./components/CountryProfile";
-import NotFound from './components/NotFound';
+import NotFound from "./components/NotFound";
 
 const countryFields = ["name", "flag", "population", "region", "capital", "alpha3Code"];
 
@@ -13,7 +13,7 @@ function App() {
     const countries = useGetCountries(countryFields);
 
     return (
-        <div className={`main-container`}>
+        <div className="main-container">
             <ToastContainer />
             <Header />
             <Switch>

@@ -6,11 +6,6 @@ const defaultProps = {
     label: "Where in the world?",
 };
 
-const switchClassNames = {
-    div: "dark",
-    i: "dark__icon",
-};
-
 function Header({ label }) {
     const { darkTheme, lightTheme, parseTheme } = theme;
     const [darkMode, setDarkMode] = useState(true);
@@ -25,7 +20,7 @@ function Header({ label }) {
             <div className="header-container l-flex-reversed">
                 <h1>{label}</h1>
                 <ModeSwitch
-                    className={switchClassNames}
+                    classBlock="dark"
                     icon={`${darkMode ? "fas" : "far"} fa-moon`}
                     onToggle={() => setDarkMode(!darkMode)}
                     label="Dark Mode"

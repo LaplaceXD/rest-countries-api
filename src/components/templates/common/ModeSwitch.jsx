@@ -5,16 +5,14 @@ const types = {
     onToggle: PropTypes.func.isRequired,
     label: PropTypes.string,
     icon: PropTypes.string,
-    className: PropTypes.object,
+    classBlock: PropTypes.string,
 };
 
-function ModeSwitch({ onToggle, label, icon, className }) {
-    const { i, p, div } = className;
-
+function ModeSwitch({ onToggle, label, icon, classBlock }) {
     return (
-        <div className={div} onClick={onToggle}>
-            <i className={`${icon} ${i}`} />
-            <p className={p}>{label}</p>
+        <div className={classBlock} onClick={onToggle}>
+            <i className={`${icon} ${classBlock}__icon`} />
+            <p className={`${classBlock}__label`}>{label}</p>
         </div>
     );
 }
