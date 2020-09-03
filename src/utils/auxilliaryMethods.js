@@ -13,3 +13,4 @@ export function addCommas(num) {
 
     return separatedDigits;
 }
+    

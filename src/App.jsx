@@ -10,7 +10,7 @@ import NotFound from './components/NotFound';
 const countryFields = ["name", "flag", "population", "region", "capital", "alpha3Code"];
 
 function App() {
-    const countries = useGetCountries(countryFields); // TODO: Cache the data to localStorage
+    const countries = useGetCountries(countryFields);
 
     return (
         <div className={`main-container`}>

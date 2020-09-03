@@ -28,6 +28,19 @@ export function getCountry(name, fields) {
     return http.get(apiNameEndpoint + queryString);
 }
 
+export function getByAlphaCode(code, fields) {
+    const apiCodeEndpoint = `${apiEndpoint}/alpha/${code}`;
+
+    if (!fields) return http.get(apiCodeEndpoint);
+
+    const queryString = createQueryString(fields);
+    return http.get(apiCodeEndpoint + queryString);
+}
+
+export function getRegions() {
+    return regions;
+}
+
 export async function loadCountries(fields, loadToCallBack) {
     try {
         const { data } = await getCountries(fields);
@@ -46,6 +59,11 @@ export async function loadCountry(name, fields, loadToCallBack) {
     }
 }
 
-export function getRegions() {
-    return regions;
+export async function convertCountryCode(code, convertTo) {
+    try {
+        const { data } = await getByAlphaCode(code, [convertTo]);
+        return data[0];
+    } catch (ex) {
+        error.handle(ex);
+    }
 }
