@@ -1,3 +1,5 @@
+import { addCommas } from "./auxilliaryMethods";
+
 export function getAvailableKeys(obj, wantedKeys) {
     const keys = Object.keys(obj);
 
@@ -7,11 +9,14 @@ export function getAvailableKeys(obj, wantedKeys) {
 export function convertToKeyValue(objToConvert, keys) {
     const availableKeys = getAvailableKeys(objToConvert, keys);
 
-    const filtered = availableKeys.reduce((items, key) => {
-        items.push({
-            key: key,
-            value: objToConvert[key],
-        });
+    const filtered = availableKeys.reduce((items, currentKey) => {
+        const key = currentKey.split(/(?=[A-Z])/).join(" ");
+        const value =
+            typeof objToConvert[currentKey] === "number"
+                ? addCommas(objToConvert[currentKey])
+                : objToConvert[currentKey];
+
+        items.push({ key, value });
 
         return items;
     }, []);
@@ -30,7 +35,7 @@ export function filterByCriteria(obj, key, criteria) {
 }
 
 export function filterByKey(obj, key) {
-    if (typeof key == "number") return obj;
+    if (typeof key === "number") return obj;
 
     return obj.reduce((acc, obj) => [...acc, obj[key]], []);
 }
