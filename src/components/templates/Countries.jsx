@@ -14,7 +14,7 @@ function Countries({ countries, display, id }) {
             {countries.map((country) => (
                 <Link key={country[id]} to={`/country/${country.name}`}>
                     <Card
-                        items={convertToKeyValue(country, display).reverse()}
+                        items={convertToKeyValue(country, display)}
                         label={country.name}
                         image={country.flag}
                     />

@@ -7,8 +7,6 @@ export function getAvailableKeys(obj, wantedKeys) {
 export function convertToKeyValue(objToConvert, keys) {
     const availableKeys = getAvailableKeys(objToConvert, keys);
 
-    console.log(objToConvert);
-
     const filtered = availableKeys.reduce((items, key) => {
         items.push({
             key: key,
@@ -31,8 +29,8 @@ export function filterByCriteria(obj, key, criteria) {
     return obj.filter((item) => item[key] === criteria);
 }
 
-export function filterByKey(array, key) {
-    if (typeof key == "number") return array;
+export function filterByKey(obj, key) {
+    if (typeof key == "number") return obj;
 
-    return array.reduce((acc, obj) => [...acc, obj[key]], []);
+    return obj.reduce((acc, obj) => [...acc, obj[key]], []);
 }

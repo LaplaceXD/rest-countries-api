@@ -28,19 +28,19 @@ export function getCountry(name, fields) {
     return http.get(apiNameEndpoint + queryString);
 }
 
-export async function loadCountries(fields, setCallback) {
+export async function loadCountries(fields, loadToCallBack) {
     try {
         const { data } = await getCountries(fields);
-        setCallback(data);
+        loadToCallBack(data);
     } catch (ex) {
         error.handle(ex);
     }
 }
 
-export async function loadCountry(name, fields, setCallback) {
+export async function loadCountry(name, fields, loadToCallBack) {
     try {
         const { data } = await getCountry(name, fields);
-        setCallback(data[0]);
+        loadToCallBack(data[0]);
     } catch (ex) {
         error.handle(ex);
     }
