@@ -13,7 +13,7 @@ function ModeSwitch({ onToggle, label, icon, classBlock: block }) {
     const classElement = classBlock(block);
 
     return (
-        <div className={classBlock} onClick={onToggle}>
+        <div className={block} onClick={onToggle}>
             <i className={`${icon} ${classElement("icon")}`} />
             <p className={classElement("label")}>{label}</p>
         </div>
