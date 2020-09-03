@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { loadCountry } from "../services/countriesService";
+import { loadCountry, convertCountryCode } from "../services/countriesService";
 import { convertToKeyValue } from "./../utils/filterMethods";
 import { getNestedDetails } from "./../utils/parseMethods";
 import ItemsList from "./templates/common/ItemsList";
@@ -26,6 +26,7 @@ const secondListKeys = [0, "name", "name"];
 function CountryProfile({ match }) {
     const { name } = match.params;
     const [flag, setFlag] = useState([]);
+    const [borders, setBorders] = useState([]);
     const [firstList, setFirstList] = useState([]);
     const [secondList, setSecondList] = useState([]);
 
@@ -51,7 +52,10 @@ function CountryProfile({ match }) {
             <ItemsList label={name} classBlock="profile" items={firstList} />
             <br />
             <ItemsList classBlock="profile" items={secondList} />
-            <ItemsList label="Border Countries:" classBlock="borders" items={secondList} />
+            {/* <ItemsList label="Border Countries:" classBlock="borders" items={secondList} /> */}
+            {borders.map((border) => (
+                <ButtonLink to={`/country/${border}`} label={border} />
+            ))}
         </main>
     );
 }

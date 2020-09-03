@@ -1,13 +1,14 @@
 import http from "./httpService";
 import config from "./config.json";
 import error from "./errorService";
+import { array } from "prop-types";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 const { apiEndpoint } = config;
 
-function createQueryString(fields) {
-    const params = fields.join(";");
-    return `?fields=${params}`;
+function createQueryString(query, params) {
+    const joinedParams = params.join(";");
+    return `?${query}=${joinedParams}`;
 }
 
 export function getCountries(fields) {
@@ -15,7 +16,7 @@ export function getCountries(fields) {
 
     if (!fields) return http.get(apiAllEndpoint);
 
-    const queryString = createQueryString(fields);
+    const queryString = createQueryString("fields", fields);
     return http.get(apiAllEndpoint + queryString);
 }
 
@@ -24,17 +25,20 @@ export function getCountry(name, fields) {
 
     if (!fields) return http.get(apiNameEndpoint);
 
-    const queryString = createQueryString(fields);
+    const queryString = createQueryString("fields", fields);
     return http.get(apiNameEndpoint + queryString);
 }
 
 export function getByAlphaCode(code, fields) {
-    const apiCodeEndpoint = `${apiEndpoint}/alpha/${code}`;
+    const alphaEndpoint = `${apiEndpoint}/alpha`;
 
-    if (!fields) return http.get(apiCodeEndpoint);
+    const searchCode = Array.isArray(code) ? createQueryString("codes", code) : `/${code}`;
+    const aplhaCodeEndPoint = alphaEndpoint + searchCode;
 
-    const queryString = createQueryString(fields);
-    return http.get(apiCodeEndpoint + queryString);
+    if (!fields) return http.get(aplhaCodeEndPoint);
+
+    const queryString = createQueryString("fields", fields);
+    return http.get(aplhaCodeEndPoint + queryString);
 }
 
 export function getRegions() {
@@ -59,10 +63,11 @@ export async function loadCountry(name, fields, loadToCallBack) {
     }
 }
 
-export async function convertCountryCode(code, convertTo) {
+export async function convertCountryCode(codes, convertTo) {
     try {
-        const { data } = await getByAlphaCode(code, [convertTo]);
-        return data[0];
+        const { data } = await getByAlphaCode(codes);
+        const converted = data.reduce((arr, obj) => [...arr, obj[convertTo]], []);
+        return converted;
     } catch (ex) {
         error.handle(ex);
     }
