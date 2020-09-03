@@ -14,12 +14,11 @@ function handleExpectedError(error) {
                 toast.error("Page not Found");
                 break;
             default:
-                toast.error("An error occured, please try again!");
                 break;
         }
     }
 
-    toast.error("Failed to fetch the data from the server.");
+    return Promise.reject(error);
 }
 
 export default {

@@ -8,10 +8,10 @@ const types = {
     to: PropTypes.string,
 };
 
-function ButtonLink({ to, icon, label }) {
+function ButtonLink({ to, icon, label, classBlock }) {
     return (
         <Link to={to}>
-            <button>
+            <button className={`${classBlock}__button`}>
                 {icon && <i className={icon} />}
                 {label}
             </button>

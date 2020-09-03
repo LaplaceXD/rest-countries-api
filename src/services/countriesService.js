@@ -66,6 +66,7 @@ export async function loadCountry(name, fields, loadToCallBack) {
 export async function convertCountryCode(codes, convertTo) {
     try {
         const { data } = await getByAlphaCode(codes);
+
         const converted = data.reduce((arr, obj) => [...arr, obj[convertTo]], []);
         return converted;
     } catch (ex) {
