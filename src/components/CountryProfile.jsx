@@ -46,13 +46,14 @@ function CountryProfile({ match }) {
     return (
         <main className="profile-container">
             <Link to="/country">
-                <button onClick={() => console.log(country)}>
+                <button>
                     <i className="fa fa-arrow-left" />
                     Back
                 </button>
             </Link>
             <img src={country.flag} alt={name} className="profile__img" />
             <ItemsList label={name} classBlock="profile" items={firstList} />
+            <br className="profile__spacer" />
             <ItemsList classBlock="profile" items={secondList} />
         </main>
     );

@@ -7,7 +7,7 @@ const defaultProps = {
 };
 
 const types = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     classBlock: PropTypes.string,
     withIdentifier: PropTypes.bool,
 };
