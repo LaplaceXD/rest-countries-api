@@ -30,13 +30,13 @@ function ItemsList({ items, label, classBlock: block, withIdentifier }) {
         return <span className={classElement("item--identifier")}>{identifier}</span>;
     }
 
-    function renderItem(item) {
+    function renderItem(item, render) {
         const { key, value } = item;
 
         return (
-            <li key={withIdentifier ? key : item} className={classElement("item")}>
-                {withIdentifier && renderIdentifier(key)}
-                {withIdentifier ? value : item}
+            <li key={render ? key : item} className={classElement("item")}>
+                {render && renderIdentifier(key)}
+                {render ? value : item}
             </li>
         );
     }
@@ -44,7 +44,7 @@ function ItemsList({ items, label, classBlock: block, withIdentifier }) {
     return (
         <ul className={classElement("items")}>
             {renderLabel(label)}
-            {items.map((item) => renderItem(item))}
+            {items.map((item) => renderItem(item, withIdentifier))}
         </ul>
     );
 }
