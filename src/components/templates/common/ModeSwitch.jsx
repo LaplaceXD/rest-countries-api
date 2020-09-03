@@ -1,5 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { classBlock } from "../../../utils/styleMethods";
 
 const types = {
     onToggle: PropTypes.func.isRequired,
@@ -8,11 +9,13 @@ const types = {
     classBlock: PropTypes.string,
 };
 
-function ModeSwitch({ onToggle, label, icon, classBlock }) {
+function ModeSwitch({ onToggle, label, icon, classBlock: block }) {
+    const classElement = classBlock(block);
+
     return (
         <div className={classBlock} onClick={onToggle}>
-            <i className={`${icon} ${classBlock}__icon`} />
-            <p className={`${classBlock}__label`}>{label}</p>
+            <i className={`${icon} ${classElement("icon")}`} />
+            <p className={classElement("label")}>{label}</p>
         </div>
     );
 }

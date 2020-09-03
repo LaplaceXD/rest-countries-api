@@ -12,7 +12,7 @@ function Card({ items, label, image }) {
     return (
         <div className="card">
             <img src={image} alt={name} className="card__img" />
-            <ItemsList classBlock={"card"} items={items} label={label} />
+            <ItemsList classBlock="card" items={items} label={label} />
         </div>
     );
 }
