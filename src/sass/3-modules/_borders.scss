@@ -17,9 +17,10 @@
 }
 
 .borders__button {
-    border-radius: 1px;
+    border-radius: 2px;
     padding: 0.66em 0;
     margin: 1em 0.925em 0 0;
     font-size: 0.7rem;
+    box-shadow: 0 0 4px $shadow-color;
     width: 30%;
 }

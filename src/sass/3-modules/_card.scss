@@ -2,6 +2,7 @@
     background-color: $element-color;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 0 12px $shadow-color;
 }
 
 .card__img {

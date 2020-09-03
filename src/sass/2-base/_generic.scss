@@ -1,5 +1,6 @@
 header {
     background-color: $element-color;
+    box-shadow: 0 0 8px $shadow-color;
 }
 
 h1 {
@@ -19,6 +20,7 @@ select {
     color: $input-color;
     border: none;
     font-size: 0.75rem;
+    box-shadow: 0 0 8px $shadow-color;
 }
 
 img {

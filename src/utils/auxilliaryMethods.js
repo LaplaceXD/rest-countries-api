@@ -13,4 +13,12 @@ export function addCommas(num) {
 
     return separatedDigits;
 }
-    
+
+export function shorten(phrase, char) {
+    if (phrase.length > char) {
+        const words = phrase.split(" ");
+        return words[0];
+    }
+
+    return phrase;
+}

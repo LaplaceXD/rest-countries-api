@@ -4,7 +4,7 @@
         { "variable": "--element-color", "value": "hsl(209, 23%, 22%)" },
         { "variable": "--input-color", "value": "hsl(0, 0%, 100%)" },
         { "variable": "--text-color", "value": "hsl(0, 0%, 100%)" },
-        { "variable": "--shadow-color", "value": "hsl(0, 0%, 0%)" }
+        { "variable": "--shadow-color", "value": "hsl(207, 24%, 8%)" }
     ],
     "lightTheme": [
         { "variable": "--background-color", "value": "hsl(0, 0%, 98%)" },

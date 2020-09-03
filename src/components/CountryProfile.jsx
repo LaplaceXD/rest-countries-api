@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { loadCountry, convertCountryCode, getCountry } from "../services/countriesService";
+import { loadCountry, convertCountryCode } from "../services/countriesService";
 import { convertToKeyValue } from "./../utils/filterMethods";
 import { getNestedDetails } from "./../utils/parseMethods";
+import { shorten } from "../utils/auxilliaryMethods";
 import ItemsList from "./templates/common/ItemsList";
 import ButtonLink from "./templates/common/ButtonLink";
 
@@ -66,7 +67,7 @@ function CountryProfile({ match }) {
                             <ButtonLink
                                 key={border}
                                 to={`/country/${border}`}
-                                label={border}
+                                label={shorten(border, 10)}
                                 classBlock="borders"
                             />
                         ))}
