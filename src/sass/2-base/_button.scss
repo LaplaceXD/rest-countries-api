@@ -9,4 +9,14 @@ button {
     i {
         margin-right: 0.75em;
     }
+
+    @include breakpoint(large) {
+        padding: 0.8em 2.5em 0.8em 2.35em;
+        font-size: 0.95rem;
+
+        i {
+            font-size: 0.8rem;
+            margin-right: 1.2em;
+        }
+    }
 }
