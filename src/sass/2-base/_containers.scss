@@ -21,6 +21,10 @@
 
 .country-container {
     padding: 1.55em 0;
+
+    @include breakpoint(large) {
+        padding: 3em 0;
+    }
 }
 
 .profile-container {

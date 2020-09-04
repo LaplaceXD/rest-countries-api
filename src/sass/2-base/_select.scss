@@ -3,6 +3,11 @@ select {
     width: 16.5em;
     margin-top: 1px;
     margin-bottom: 2.55em;
+
+    @include breakpoint(large) {
+        width: 14em;
+        height: 3.75em;
+    }
 }
 
 // Fix arrow problem

@@ -8,7 +8,7 @@ h1 {
     letter-spacing: 0.2px;
 
     @include breakpoint(large) {
-       font-size: 1.47rem; 
+       font-size: 1.475rem; 
     }    
 }
 
@@ -25,6 +25,10 @@ select {
     border: none;
     font-size: 0.75rem;
     box-shadow: 0 0 8px $shadow-color;
+
+    @include breakpoint(large) {
+        font-size: 0.9rem;
+    }
 }
 
 img {

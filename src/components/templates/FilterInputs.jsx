@@ -14,7 +14,7 @@ function FilterInputs({ inputData }) {
     }
 
     return (
-        <section className="l-flex">
+        <section className="l-flex-filter">
             <SearchBox
                 placeholder="Search for a country..."
                 value={search}
