@@ -3,6 +3,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 12px $shadow-color;
+    height: 21em;
 }
 
 .card__img {
@@ -18,7 +19,6 @@
 .card__items {
     list-style-type: none;
     padding: 1.5em;
-    margin-bottom: 1em;
 }
 
 .card__label {
