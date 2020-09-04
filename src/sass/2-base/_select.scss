@@ -4,7 +4,7 @@ select {
     margin-top: 1px;
     margin-bottom: 2.55em;
 
-    @include breakpoint(large) {
+    @include breakpoint(medium) {
         width: 14em;
         height: 3.75em;
         margin-bottom: 3.5em;

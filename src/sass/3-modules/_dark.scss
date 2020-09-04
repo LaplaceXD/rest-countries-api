@@ -17,6 +17,13 @@
     font-size: 0.78rem;
 }
 
+@include breakpoint(medium) {
+    .dark__icon,
+    .dark__label {
+        font-size: 0.85rem;
+    }
+}
+
 @include breakpoint(large) {
     .dark__icon,
     .dark__label {
