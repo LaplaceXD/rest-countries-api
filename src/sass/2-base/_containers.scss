@@ -34,4 +34,7 @@
 
 .cards-container {
     @include centered-container(77%);
+    @include breakpoint(large) {
+        @include centered-container(100%);
+    }
 }

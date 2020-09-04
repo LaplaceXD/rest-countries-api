@@ -1,4 +1,9 @@
 .l-grid {
     display: grid;
     grid-gap: 38px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include breakpoint(large) {
+        grid-gap: 72px;
+    }
 }
