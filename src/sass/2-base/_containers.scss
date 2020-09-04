@@ -8,10 +8,15 @@
 .country-container,
 .header-container {
     @include centered-container(91.5%);
+    max-width: 1260px;
 }
 
 .header-container {
     padding: 1.92em 0;
+
+    @include breakpoint(large) {
+        padding: 1.5em 0;
+    }
 }
 
 .country-container {

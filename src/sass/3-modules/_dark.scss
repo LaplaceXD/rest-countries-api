@@ -3,10 +3,6 @@
     align-items: center;
     padding-top: 2px;
 
-    p {
-        font-size: 0.78rem;
-    }
-
     &:hover {
         cursor: pointer;
     }
@@ -15,4 +11,15 @@
 .dark__icon {
     margin-right: 1em;
     font-size: 0.7em;
+}
+
+.dark__label {
+    font-size: 0.78rem;
+}
+
+@include breakpoint(large) {
+    .dark__icon,
+    .dark__label {
+        font-size: 1rem;
+    }
 }

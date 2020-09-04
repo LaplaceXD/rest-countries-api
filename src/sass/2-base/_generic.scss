@@ -6,6 +6,10 @@ header {
 h1 {
     font-size: 0.85rem;
     letter-spacing: 0.2px;
+
+    @include breakpoint(large) {
+       font-size: 1.47rem; 
+    }    
 }
 
 h2 {

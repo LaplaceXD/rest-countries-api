@@ -22,7 +22,7 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 exclude: /node_modules/,
-                use: [MINI_CSS_EXTRACT_PLUGIN.loader, "css-loader", "postcss-loader", "sass-loader"],
+                use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
             },
             { test: /\.html$/, use: "html-loader" },
             { test: /\.(png|gif|jpe?g|svg)$/, use: "file-loader" },
@@ -36,10 +36,10 @@ module.exports = {
             template: "./src/index.html",
             filename: "./index.html",
         }),
-        new MINI_CSS_EXTRACT_PLUGIN({
-            filename: "[name].[contenthash].css",
-            chunkFilename: "[name].[contenthash].css",
-        }),
+        // new MINI_CSS_EXTRACT_PLUGIN({
+        //     filename: "[name].[contenthash].css",
+        //     chunkFilename: "[name].[contenthash].css",
+        // }),
         new BABEL_MINIFY_WEBPACK_PLUGIN(
             {},
             {

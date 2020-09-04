@@ -5,8 +5,8 @@ $breakpoint-sizes: (
 );
 
 @mixin breakpoint($size) {
-    @if map-has-key($breakpoint-sizes, $sizes) {
-        @media screen and (min-width: map-get($breakpoint-sizes, $sizes)) {
+    @if map-has-key($breakpoint-sizes, $size) {
+        @media screen and (min-width: map-get($breakpoint-sizes, $size)) {
             @content;
         }
     } @else {
