@@ -10,10 +10,7 @@
     width: 100%;
     height: 43vw;
     object-fit: cover;
-
-    @include breakpoint(large) {
-        height: 10em;
-    }
+    max-height: 10em;
 }
 
 .card__items {

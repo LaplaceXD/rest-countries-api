@@ -1,7 +1,7 @@
 .l-grid {
     display: grid;
-    grid-gap: 38px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     @include breakpoint(large) {
         grid-gap: 72px;
