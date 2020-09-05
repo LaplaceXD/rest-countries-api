@@ -2,15 +2,19 @@
     display: flex;
     flex-direction: column;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
         flex-direction: row;
     }
 }
 
+.l-flex-spaced {
+    justify-content: space-between;
+}
+
 .l-flex-reversed {
+    @extend .l-flex-spaced;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
 }
 
 .l-flex-filter{

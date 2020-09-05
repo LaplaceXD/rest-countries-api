@@ -30,16 +30,13 @@
 .profile-container {
     padding: 2.5em 0;
     @include centered-container(85%);
+    max-width: 1280px;
 
     @include breakpoint(large) {
-        width: 1280px;
         padding: 5em 0;
     }
 }
 
 .cards-container {
-    @include centered-container(77%);
-    @include breakpoint(large) {
-        @include centered-container(100%);
-    }
+    @include breakpoint-size-change(77%, large, 100%);
 }

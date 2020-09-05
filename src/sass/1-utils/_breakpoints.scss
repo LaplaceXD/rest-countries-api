@@ -1,7 +1,7 @@
 $breakpoint-sizes: (
     small: 375px,
     medium: 768px,
-    large: 1440px,
+    large: 1280px,
 );
 
 @mixin breakpoint($size) {
@@ -11,5 +11,14 @@ $breakpoint-sizes: (
         }
     } @else {
         @error "There is no breakpoint size defined for #{$size}";
+    }
+}
+
+@mixin breakpoint-size-change($from, $size, $to) {
+    margin: auto;
+    width: $from;
+
+    @include breakpoint($size) {
+        width: $to;
     }
 }

@@ -1,19 +1,24 @@
 .borders {
-    margin-top: 2.5em;
+    margin-top: -0.5em;
+    grid-column: 1/-1;
+
+    @include breakpoint(large) {
+        display: grid;
+        grid-template-columns: repeat(6, 86px);
+        grid-gap: 0.75em;
+        margin-top: 1em;
+        align-items: center;
+    }
 }
 
 .borders__title {
-    grid-column: 1 / -1;
     font-size: 1.03rem;
     margin-bottom: 0.35em;
     @include get-font-weight(light);
-}
 
-.borders__buttons {
-    display: flex;
-    grid-gap: 1em;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
+    @include breakpoint(large) {
+        grid-column: span 2;
+    }
 }
 
 .borders__button {
@@ -23,4 +28,10 @@
     font-size: 0.7rem;
     box-shadow: 0 0 4px $shadow-color;
     width: 30%;
+
+    @include breakpoint(large) {
+        width: 100%;
+        margin: 0;
+        font-size: 0.8rem;
+    }
 }

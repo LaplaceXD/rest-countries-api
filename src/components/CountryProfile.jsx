@@ -55,25 +55,27 @@ function CountryProfile({ match }) {
     return (
         <main className="profile-container">
             <ButtonLink to="/" label="Back" icon="fa fa-arrow-left" />
-            <img src={flag} alt={name} className="profile__img" />
-            <ItemsList label={name} classBlock="profile" items={firstList} />
-            <br />
-            <ItemsList classBlock="profile" items={secondList} />
-            {borders && (
-                <div className="borders">
-                    <h3 className="borders__title">Border Countries: </h3>
-                    <div className="border__buttons">
-                        {borders.map((border) => (
-                            <ButtonLink
-                                key={border}
-                                to={`/country/${border}`}
-                                label={shorten(border, 10)}
-                                classBlock="borders"
-                            />
-                        ))}
-                    </div>
+            <div className="l-flex-spaced profile__wrapper">
+                <img src={flag} alt={name} className="profile__img" />
+                <div className="l-grid-2 profile__details">
+                    <h2 className="profile__label">{name}</h2>
+                    <ItemsList classBlock="profile" items={firstList} />
+                    <ItemsList classBlock="profile" items={secondList} />
+                    {borders && (
+                        <div className="borders">
+                            <h3 className="borders__title">Border Countries: </h3>
+                            {borders.map((border) => (
+                                <ButtonLink
+                                    key={border}
+                                    to={`/country/${border}`}
+                                    label={shorten(border, 10)}
+                                    classBlock="borders"
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
         </main>
     );
 }

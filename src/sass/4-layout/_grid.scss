@@ -1,9 +1,18 @@
-.l-grid {
+[class*="l-grid"] {
     display: grid;
+}
+
+.l-grid-4 {
     grid-gap: 40px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     @include breakpoint(large) {
         grid-gap: 72px;
+    }
+}
+
+.l-grid-2 {
+    @include breakpoint(large) {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

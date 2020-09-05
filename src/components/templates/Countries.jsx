@@ -10,7 +10,7 @@ const defaultProps = {
 
 function Countries({ countries, display, id }) {
     return (
-        <section className="l-grid cards-container">
+        <section className="l-grid-4 cards-container">
             {countries.map((country) => (
                 <Link key={country[id]} to={`/country/${country.name}`}>
                     <Card

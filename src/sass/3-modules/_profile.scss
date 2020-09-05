@@ -1,19 +1,47 @@
+.profile__wrapper {
+    @include breakpoint(large) {
+        margin-top: 5em;
+    }
+}
+
 .profile__img {
-    margin: 4em 0 2.27em 0;
+    margin: 4em 0 2.75em 0;
     height: 61vw;
+    @include breakpoint(large) {
+        margin: 0;
+        height: 100%;
+        width: 44%;
+    }
+}
+
+.profile__details {
+    @include breakpoint(large) {
+        margin-top: 2.25em;
+    }
 }
 
 .profile__label {
     font-size: 1.37rem;
-    margin-bottom: 1.1em;
+    margin-bottom: 1em;
+    grid-column: 1 / -1;
+
+    @include breakpoint(large) {
+        font-size: 2rem;
+        margin-bottom: 1em;
+    }
 }
 
 .profile__items {
     list-style-type: none;
+    margin-bottom: 2.75em;
 }
 
 .profile__item {
     font-size: 0.875rem;
-    margin-top: 0.5em;
     margin-bottom: 0.95em;
+
+    @include breakpoint(large) {
+        font-size: 1rem;
+        margin-bottom: 0.6em;
+    }
 }
