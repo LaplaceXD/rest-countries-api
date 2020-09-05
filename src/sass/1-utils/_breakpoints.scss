@@ -20,5 +20,6 @@ $breakpoint-sizes: (
 
     @include breakpoint($size) {
         width: $to;
+        @content;
     }
 }

@@ -16,17 +16,19 @@ function App() {
         <div className="main-container">
             <ToastContainer />
             <Header />
-            <Switch>
-                <Route path="/country/:name" component={CountryProfile} />
-                <Route
-                    path="/country"
-                    exact
-                    component={(props) => <CountryCards countries={countries} {...props} />}
-                />
-                <Route path="/not-found" component={NotFound} />
-                <Redirect from="/" exact to="/country" />
-                <Redirect from="/" to="/not-found" />
-            </Switch>
+            <main className="country-container">
+                <Switch>
+                    <Route path="/country/:name" component={CountryProfile} />
+                    <Route
+                        path="/country"
+                        exact
+                        component={(props) => <CountryCards countries={countries} {...props} />}
+                    />
+                    <Route path="/not-found" component={NotFound} />
+                    <Redirect from="/" exact to="/country" />
+                    <Redirect from="/" to="/not-found" />
+                </Switch>
+            </main>
         </div>
     );
 }

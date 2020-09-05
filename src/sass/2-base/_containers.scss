@@ -28,12 +28,10 @@
 }
 
 .profile-container {
-    padding: 2.5em 0;
-    @include centered-container(85%);
-    max-width: 1280px;
+    padding: 1em 0;
 
-    @include breakpoint(large) {
-        padding: 5em 0;
+    @include breakpoint-size-change(93%, large, 100%) {
+        margin: 1em 0;
     }
 }
 

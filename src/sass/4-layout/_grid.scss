@@ -14,5 +14,6 @@
 .l-grid-2 {
     @include breakpoint(large) {
         grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 6.5em;
     }
 }

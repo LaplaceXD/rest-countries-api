@@ -34,10 +34,10 @@ function CountryCards({ countries }) {
     }, [filter]);
 
     return (
-        <main className="country-container">
+        <>
             <FilterInputs inputData={[filter, dispatchFilter]} />
             <Countries countries={deployCountriesList()} />
-        </main>
+        </>
     );
 }
 
