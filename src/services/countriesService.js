@@ -67,7 +67,14 @@ export async function convertCountryCode(codes, convertTo) {
     try {
         const { data } = await getByAlphaCode(codes);
 
-        const converted = data.reduce((arr, obj) => [...arr, obj[convertTo]], []);
+        let count = 0;
+        const converted = data.reduce((arr, obj) => {
+            const codeConvert = [codes[count], obj[convertTo]];
+            count++;
+
+            arr.push(codeConvert);
+            return arr;
+        }, []);
         return converted;
     } catch (ex) {
         error.handle(ex);
