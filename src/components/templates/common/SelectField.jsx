@@ -15,6 +15,7 @@ function SelectField({ placeholder, options, name, value, onInputChange }) {
             className="select"
             name={name}
             value={value}
+            aria-label="filter"
             onChange={(e) => onInputChange(e.currentTarget)}>
             <option style={{ display: "none" }}>{placeholder}</option>
             {options.map((option) => (

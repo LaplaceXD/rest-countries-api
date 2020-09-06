@@ -21,6 +21,7 @@ function SearchBox({ placeholder, onSearch, name, value }) {
                 type="text"
                 value={value}
                 name={name}
+                aria-label="search"
                 placeholder={placeholder}
                 className="search__box"
                 onChange={(e) => onSearch(e.currentTarget)}
