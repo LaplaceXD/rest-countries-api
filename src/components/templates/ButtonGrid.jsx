@@ -2,7 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { classBlock } from "../../utils/styleMethods";
 import { shorten } from "../../utils/auxilliaryMethods";
-import ButtonLink from './common/ButtonLink';
+import ButtonLink from "./common/ButtonLink";
 
 const defaultProps = {
     length: 10,
@@ -24,8 +24,8 @@ function ButtonGrid({ classBlock: block, label, items, length }) {
             {items.map((item) => (
                 <ButtonLink
                     key={item}
-                    to={`/country/${item}`}
-                    label={shorten(item, length)}
+                    to={`/country/${item[0]}`}
+                    label={shorten(item[1], length)}
                     classBlock={block}
                 />
             ))}

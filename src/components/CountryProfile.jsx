@@ -51,7 +51,14 @@ function CountryProfile({ match }) {
         }
 
         const borderNames = convertCountryCode(bordersData, "name");
-        borderNames.then((borders) => setBorders(borders));
+        
+        const borderBuffer = [];
+        for(let i = 0; i < bordersData.length; i++) {
+            const bordersIdName = [bordersData[i], borderNames[i]];
+            borderBuffer.push(bordersIdName);
+        }
+        
+        borderBuffer.then((borders) => setBorders(borders));
     }
 
     function countryDataHandler(countryData) {
