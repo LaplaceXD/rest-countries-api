@@ -1,4 +1,4 @@
-import { addCommas } from "./auxilliaryMethods";
+import { shouldAddCommas } from "./auxilliaryMethods";
 
 export function getAvailableKeys(obj, wantedKeys) {
     const keys = Object.keys(obj);
@@ -10,14 +10,10 @@ export function convertToKeyValue(objToConvert, keys) {
     const availableKeys = getAvailableKeys(objToConvert, keys);
 
     const filtered = availableKeys.reduce((items, currentKey) => {
-        const key = currentKey.split(/(?=[A-Z])/).join(" ");
-        const value =
-            typeof objToConvert[currentKey] === "number"
-                ? addCommas(objToConvert[currentKey])
-                : objToConvert[currentKey];
+        const key = currentKey.split(/(?=[A-Z])/).join(" "); // adds Proper Spacing
+        const value = shouldAddCommas(objToConvert[currentKey]); //adds Commas to numbers
 
         items.push({ key, value });
-
         return items;
     }, []);
 

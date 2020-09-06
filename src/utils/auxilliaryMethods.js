@@ -22,3 +22,8 @@ export function shorten(phrase, char) {
 
     return phrase;
 }
+
+export function shouldAddCommas(item) {
+    const isNumber = typeof item === "number";
+    return isNumber ? addCommas(item) : item;
+}

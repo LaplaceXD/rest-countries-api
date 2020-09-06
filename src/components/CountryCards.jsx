@@ -19,14 +19,11 @@ function CountryCards({ countries }) {
         ];
 
         const filtered = multiPassFilter(countries, filters);
-
         setFilteredCountries(filtered);
     }
 
     function deployCountriesList() {
-        if (!search && !region) {
-            return countries;
-        }
+        if (!search && !region) return countries;
 
         return filteredCountries;
     }
