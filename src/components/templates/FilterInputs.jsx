@@ -14,7 +14,7 @@ function FilterInputs({ inputData }) {
     }
 
     return (
-        <section className="l-flex-filter">
+        <div className="l-flex-filter">
             <SearchBox
                 placeholder="Search for a country..."
                 value={search}
@@ -28,7 +28,7 @@ function FilterInputs({ inputData }) {
                 onInputChange={handleFilter}
                 options={allRegions}
             />
-        </section>
+        </div>
     );
 }
 

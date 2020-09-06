@@ -20,8 +20,8 @@ export function getCountries(fields) {
     return http.get(apiAllEndpoint + queryString);
 }
 
-export function getCountry(name, fields) {
-    const apiNameEndpoint = `${apiEndpoint}/name/${name}`;
+export function getCountry(id, fields) {
+    const apiNameEndpoint = `${apiEndpoint}/alpha/${id}`;
 
     if (!fields) return http.get(apiNameEndpoint);
 
@@ -54,10 +54,10 @@ export async function loadCountries(fields, loadToCallBack) {
     }
 }
 
-export async function loadCountry(name, fields, loadToCallBack) {
+export async function loadCountry(id, fields, loadToCallBack) {
     try {
-        const { data } = await getCountry(name, fields);
-        loadToCallBack(data[0]);
+        const { data } = await getCountry(id, fields);
+        loadToCallBack(data);
     } catch (ex) {
         error.handle(ex);
     }

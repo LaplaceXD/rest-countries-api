@@ -18,7 +18,7 @@ function App() {
             <Header />
             <main className="country-container">
                 <Switch>
-                    <Route path="/country/:name" component={CountryProfile} />
+                    <Route path="/country/:id" component={CountryProfile} />
                     <Route
                         path="/country"
                         exact

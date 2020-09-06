@@ -16,15 +16,17 @@ const countryFields = [
     "currencies",
     "languages",
     "borders",
+    "name",
     "flag",
 ];
 
 function CountryProfile({ match }) {
-    const { name } = match.params;
+    const { id } = match.params;
     const [firstList, setFirstList] = useState([]);
     const [secondList, setSecondList] = useState([]);
     const [borders, setBorders] = useState([]);
-    const [flag, setFlag] = useState([]);
+    const [flag, setFlag] = useState("");
+    const [name, setName] = useState("");
 
     function loadFirstList(countryData) {
         const firstListDisplay = countryFields.slice(0, 5);
@@ -53,17 +55,18 @@ function CountryProfile({ match }) {
     }
 
     function countryDataHandler(countryData) {
-        const { flag, borders } = countryData;
+        const { name, flag, borders } = countryData;
 
         loadFirstList(countryData);
         loadSecondList(countryData);
         loadBordersData(borders);
         setFlag(flag);
+        setName(name);
     }
 
     useEffect(() => {
-        loadCountry(name, countryFields, countryDataHandler);
-    }, [name]);
+        loadCountry(id, countryFields, countryDataHandler);
+    }, [id]);
 
     return (
         <main className="profile-container">
