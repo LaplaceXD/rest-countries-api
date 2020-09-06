@@ -1,7 +1,6 @@
 import http from "./httpService";
 import config from "./config.json";
 import error from "./errorService";
-import { array } from "prop-types";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 const { apiEndpoint } = config;
