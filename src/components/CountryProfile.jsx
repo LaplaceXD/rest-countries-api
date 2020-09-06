@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { loadCountry, convertCountryCode } from "../services/countriesService";
 import { convertToKeyValue } from "./../utils/filterMethods";
 import { getNestedDetails } from "./../utils/parseMethods";
-import { shorten } from "../utils/auxilliaryMethods";
 import ItemsList from "./templates/common/ItemsList";
 import ButtonLink from "./templates/common/ButtonLink";
+import ButtonGrid from "./templates/ButtonGrid";
 
 const countryFields = [
     "nativeName",
-    "flag",
     "population",
     "region",
     "subregion",
@@ -17,35 +16,49 @@ const countryFields = [
     "currencies",
     "languages",
     "borders",
-    "borders",
+    "flag",
 ];
-
-const firstListDisplay = ["nativeName", "population", "region", "subregion", "capital"];
-
-const secondListDisplay = ["topLevelDomain", "currencies", "languages"];
-const secondListKeys = [0, "name", "name"];
 
 function CountryProfile({ match }) {
     const { name } = match.params;
-    const [flag, setFlag] = useState([]);
-    const [borders, setBorders] = useState([]);
     const [firstList, setFirstList] = useState([]);
     const [secondList, setSecondList] = useState([]);
+    const [borders, setBorders] = useState([]);
+    const [flag, setFlag] = useState([]);
 
-    function countryDataHandler(countryData) {
-        const { flag, borders } = countryData;
-
-        setFlag(flag);
+    function loadFirstList(countryData) {
+        const firstListDisplay = countryFields.slice(0, 5);
 
         const firstListData = convertToKeyValue(countryData, firstListDisplay);
         setFirstList(firstListData);
+    }
+
+    function loadSecondList(countryData) {
+        const secondListDisplay = countryFields.slice(5, 8);
+        const secondListKeys = [0, "name", "name"];
 
         const parsedDetails = getNestedDetails(countryData, secondListDisplay, secondListKeys);
         const secondListData = convertToKeyValue(parsedDetails, secondListDisplay);
         setSecondList(secondListData);
+    }
 
-        if (borders.length !== 0) convertCountryCode(borders, "name").then((value) => setBorders(value));
-        else setBorders(null);
+    function loadBordersData(bordersData) {
+        if (bordersData.length === 0) {
+            setBorders(null);
+            return;
+        }
+
+        const borderNames = convertCountryCode(bordersData, "name");
+        borderNames.then((borders) => setBorders(borders));
+    }
+
+    function countryDataHandler(countryData) {
+        const { flag, borders } = countryData;
+
+        loadFirstList(countryData);
+        loadSecondList(countryData);
+        loadBordersData(borders);
+        setFlag(flag);
     }
 
     useEffect(() => {
@@ -62,17 +75,7 @@ function CountryProfile({ match }) {
                     <ItemsList classBlock="profile" items={firstList} />
                     <ItemsList classBlock="profile" items={secondList} />
                     {borders && (
-                        <div className="borders">
-                            <h3 className="borders__title">Border Countries: </h3>
-                            {borders.map((border) => (
-                                <ButtonLink
-                                    key={border}
-                                    to={`/country/${border}`}
-                                    label={shorten(border, 10)}
-                                    classBlock="borders"
-                                />
-                            ))}
-                        </div>
+                        <ButtonGrid classBlock="borders" items={borders} label="Border Countries:" />
                     )}
                 </div>
             </div>
