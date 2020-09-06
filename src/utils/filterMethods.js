@@ -24,18 +24,21 @@ export function convertToKeyValue(objToConvert, keys) {
     return filtered;
 }
 
-export function filterByString(obj, key, searchString) {
-    return obj.filter((item) => item[key].toLowerCase().startsWith(searchString.toLowerCase()));
-}
-
-export function filterByCriteria(obj, key, criteria) {
-    if (!criteria) return obj;
-
-    return obj.filter((item) => item[key] === criteria);
-}
-
 export function filterByKey(obj, key) {
     if (typeof key === "number") return obj;
 
     return obj.reduce((acc, obj) => [...acc, obj[key]], []);
+}
+
+export function multiPassFilter(items, array) {
+    let buffer = [...items];
+
+    array.forEach((filters) => {
+        const [value, filterBy] = filters;
+        if (!value) return;
+
+        buffer = buffer.filter(filterBy);
+    });
+
+    return buffer;
 }

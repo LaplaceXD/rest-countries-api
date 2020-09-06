@@ -1,18 +1,13 @@
 export function filterReducer(filter, action) {
-    const state = { ...filter };
+    const { type, value } = action;
+    const keys = Object.keys(filter);
 
-    switch (action.type) {
-        case "search":
-            state.search = action.value;
-            state.region = "";
-            break;
-        case "region":
-            state.region = action.value;
-            state.search = "";
-            break;
-        default:
-            break;
-    }
+    const state = keys.reduce((reset, key) => {
+        reset[key] = "";
+        return reset;
+    }, {});
+
+    state[type] = value;
 
     return state;
 }

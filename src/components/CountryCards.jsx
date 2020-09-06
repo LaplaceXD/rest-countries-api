@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useReducer } from "react";
-import { filterByString, filterByCriteria } from "../utils/filterMethods";
+import { multiPassFilter } from "./../utils/filterMethods";
+import filterBy from "./../utils/filterByExpressions";
 import { filterReducer } from "./hooks/filterReducer";
 import FilterInputs from "./templates/FilterInputs";
 import Countries from "./templates/Countries";
@@ -12,15 +13,16 @@ function CountryCards({ countries }) {
     const { search, region } = filter;
 
     function filterCountries() {
-        const filtered = search
-            ? filterByString(countries, "name", search)
-            : filterByCriteria(countries, "region", region);
+        const filters = [
+            [search, filterBy.searchString("name", search)],
+            [region, filterBy.criteria("region", region)],
+        ];
+
+        const filtered = multiPassFilter(countries, filters);
 
         setFilteredCountries(filtered);
     }
 
-    // To prevent full re-render of this component, which
-    // makes it look like a slow reload
     function deployCountriesList() {
         if (!search && !region) {
             return countries;
