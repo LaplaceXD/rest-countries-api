@@ -1,0 +1,30 @@
+.loading {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(black, 0.5);
+    height: calc(100vh - 80px);
+    width: 100vw;
+    transition: opacity 500ms ease;
+
+    &.isRevealed {
+        opacity: 1;
+    }
+
+    &.isRemoved {
+        display: none;
+    }
+}
+
+.loading__label {
+    font-size: 3rem;
+}
+
+.loading__buffer {
+    font-size: 2.5rem;
+}

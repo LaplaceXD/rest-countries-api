@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { loadCountry, convertCountryCode } from "../services/countriesService";
 import { convertToKeyValue } from "./../utils/filterMethods";
 import { getNestedDetails } from "./../utils/parseMethods";
 import ItemsList from "./templates/common/ItemsList";
 import ButtonLink from "./templates/common/ButtonLink";
 import ButtonGrid from "./templates/ButtonGrid";
+import LoadingScreen from "./templates/common/LoadingScreen";
 
 const countryFields = [
     "nativeName",
@@ -27,6 +28,7 @@ function CountryProfile({ match }) {
     const [borders, setBorders] = useState([]);
     const [flag, setFlag] = useState("");
     const [name, setName] = useState("");
+    const loadingRef = useRef();
 
     function loadFirstList(countryData) {
         const firstListDisplay = countryFields.slice(0, 5);
@@ -66,25 +68,37 @@ function CountryProfile({ match }) {
         setName(name);
     }
 
+    function resetStates() {
+        setFirstList([]);
+        setSecondList([]);
+        setBorders([]);
+        setFlag("");
+        setName("");
+    }
+
     useEffect(() => {
+        resetStates();
         loadCountry(id, countryFields, countryDataHandler);
     }, [id]);
 
     return (
-        <main className="profile-container">
-            <ButtonLink to="/" label="Back" icon="fa fa-arrow-left" />
-            <div className="l-flex-spaced profile__wrapper">
-                <img src={flag} alt={name} className="profile__img" />
-                <div className="l-grid-2 profile__details">
-                    <h2 className="profile__label">{name}</h2>
-                    <ItemsList classBlock="profile" items={firstList} />
-                    <ItemsList classBlock="profile" items={secondList} />
-                    {borders && (
-                        <ButtonGrid classBlock="borders" items={borders} label="Border Countries:" />
-                    )}
+        <>
+            <LoadingScreen dependency={name} />
+            <main className="profile-container">
+                <ButtonLink to="/" label="Back" icon="fa fa-arrow-left" />
+                <div className="l-flex-spaced profile__wrapper">
+                    <img src={flag} alt={name} className="profile__img" />
+                    <div className="l-grid-2 profile__details">
+                        <h2 className="profile__label">{name}</h2>
+                        <ItemsList classBlock="profile" items={firstList} />
+                        <ItemsList classBlock="profile" items={secondList} />
+                        {borders && (
+                            <ButtonGrid classBlock="borders" items={borders} label="Border Countries:" />
+                        )}
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </>
     );
 }
 
