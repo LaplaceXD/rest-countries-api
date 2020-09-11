@@ -1,0 +1,16 @@
+*.fade-in {
+    opacity: 0;
+    transform: translateY(20%);
+    animation: fade 500ms ease forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

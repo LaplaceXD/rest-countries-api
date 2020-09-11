@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { multiPassFilter } from "./../utils/filterMethods";
+import observe, { observeItems } from "../utils/observerMethods";
 import filterBy from "./../utils/filterByExpressions";
 import { filterReducer } from "./hooks/filterReducer";
 import FilterInputs from "./templates/FilterInputs";
 import Countries from "./templates/Countries";
+import { createObserver } from "./../utils/observerMethods";
 
 const filterDefaults = { search: "", region: "" };
 
@@ -11,6 +13,32 @@ function CountryCards({ countries }) {
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
     const { search, region } = filter;
+
+    useEffect(() => {
+        const config = {
+            rootMargin: "0px 0px 92px 0px",
+            threshold: 0,
+        };
+
+        const cardImgs = document.querySelectorAll(".card__img");
+        observe.lazyLoadImages(cardImgs, config);
+    }, [observe.lazyLoadImages]);
+
+    useEffect(() => {
+        const config = {
+            rootMargin: "0px 0px 128px 0px",
+            threshold: 0,
+        };
+
+        const cards = document.querySelectorAll(".card");
+        const observer = createObserver((card) => {
+            if (card.intersectionRatio > 0) {
+                card.target.classList.add("fade-in");
+            }
+        }, config);
+
+        observeItems(observer, cards);
+    }, [observe.observeItems, observe.createObserver]);
 
     function filterCountries() {
         const filters = [
