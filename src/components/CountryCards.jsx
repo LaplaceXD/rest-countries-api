@@ -57,11 +57,13 @@ function CountryCards({ countries }) {
     }
 
     useEffect(() => {
-        filterCountries();
-
-        lazyLoadImages();
         fadeCards();
-    }, [filter]);
+    }, []);
+
+    useEffect(() => {
+        filterCountries();
+        lazyLoadImages();
+    }, [search, region]);
 
     return (
         <>
