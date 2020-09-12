@@ -12,19 +12,17 @@ export function observeItems(observer, items) {
     });
 }
 
-export function lazyLoadImages(items, config) {
-    const observer = createObserver((img) => {
-        if (img.intersectionRatio > 0) {
-            const src = img.target.dataset.src;
-            img.target.setAttribute("src", src);
+export function animationObserver(callback, config) {
+    const observer = createObserver((item) => {
+        if (item.intersectionRatio > 0) {
+            callback(item)
         }
     }, config);
 
-    observeItems(observer, items);
+    return observer;
 }
 
 export default {
-    lazyLoadImages,
     createObserver,
-    observeItems
-}
+    observeItems,
+};
