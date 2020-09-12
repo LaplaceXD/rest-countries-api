@@ -8,14 +8,13 @@ const defaultProps = {
     display: ["population", "region", "capital"],
 };
 
-function Countries({ countries, display, id, observers }) {
+function Countries({ countries, display, id }) {
     return (
         <section className="l-grid-4 cards-container">
             {countries.map((country) => (
                 <Link key={country[id]} to={`/country/${country[id].toLowerCase()}`}>
                     <Card
                         id={country[id]}
-                        observers={observers}
                         items={convertToKeyValue(country, display)}
                         label={country.name}
                         image={country.flag}
