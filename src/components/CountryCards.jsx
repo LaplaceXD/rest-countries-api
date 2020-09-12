@@ -13,7 +13,7 @@ const observeLazyLoad = animationObserver(
         const src = image.target.dataset.src;
         image.target.setAttribute("src", src);
     },
-    { rootMargin: "0px 0px 92px 0px", threshold: 0, delay: 10 }
+    { rootMargin: "0px 0px 92px 0px", threshold: 0, delay: 3 }
 );
 
 const observeFadeIn = animationObserver(
