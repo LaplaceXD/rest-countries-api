@@ -1,6 +1,6 @@
-import http from "./httpService";
 import config from "./config.json";
 import error from "./errorService";
+import http from "./httpService";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 const { apiEndpoint } = config;
@@ -16,7 +16,7 @@ export function getCountries(fields) {
     if (!fields) return http.get(apiAllEndpoint);
 
     const queryString = createQueryString("fields", fields);
-    return http.get(apiAllEndpoint + queryString);
+    return http.get(apiAllEndpoint + "/" + queryString);
 }
 
 export function getCountry(id, fields) {
