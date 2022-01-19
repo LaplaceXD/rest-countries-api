@@ -1,25 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import CountryCards from "./components/CountryCards";
 import CountryProfile from "./components/CountryProfile";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
-import { loadCountries } from "./services/countriesService";
-
-const countryFields = ["name", "flag", "population", "region", "capital", "alpha3Code"];
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [countries, setCountries] = useState([]);
-
-    useEffect(() => {
-        loadCountries(countryFields).then((data) => {
-            setCountries(data);
-            setIsLoading(false);
-        });
-    }, []);
-
     return (
         <div className="main-container">
             <ToastContainer />

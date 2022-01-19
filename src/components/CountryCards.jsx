@@ -4,12 +4,23 @@ import { multiPassFilter } from "./../utils/filterMethods";
 import { filterReducer } from "./hooks/filterReducer";
 import Countries from "./templates/Countries";
 import FilterInputs from "./templates/FilterInputs";
+import { loadCountries } from "../services/countriesService";
 
 const filterDefaults = { search: "", region: "" };
+const countryFields = ["name", "flag", "population", "region", "capital", "alpha3Code"];
 
-function CountryCards({ countries, countriesLoading }) {
+function CountryCards() {
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        loadCountries(countryFields).then((data) => {
+            setCountries(data);
+            setIsLoading(false);
+        });
+    }, []);
 
     function deployCountriesList() {
         const { search, region } = filter;
@@ -28,12 +39,12 @@ function CountryCards({ countries, countriesLoading }) {
 
         const filtered = multiPassFilter(countries, filters);
         setFilteredCountries(filtered);
-    }, [filter, countries]);
+    }, [filter]);
 
     return (
         <>
             <FilterInputs inputData={[filter, dispatchFilter]} />
-            {!countriesLoading && <Countries countries={deployCountriesList()} />}
+            {!isLoading && <Countries countries={deployCountriesList()} />}
         </>
     );
 }
