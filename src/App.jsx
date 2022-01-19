@@ -14,13 +14,7 @@ function App() {
             <main className="country-container">
                 <Switch>
                     <Route path="/country/:id" component={CountryProfile} />
-                    <Route
-                        path="/country"
-                        exact
-                        component={(props) => (
-                            <CountryCards countries={countries} countriesLoading={isLoading} {...props} />
-                        )}
-                    />
+                    <Route path="/country" exact component={CountryCards} />
                     <Route path="/not-found" component={NotFound} />
                     <Redirect from="/" exact to="/country" />
                     <Redirect from="/" to="/not-found" />
