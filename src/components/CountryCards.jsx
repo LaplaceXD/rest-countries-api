@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useReducer } from "react";
-import { multiPassFilter } from "./../utils/filterMethods";
+import React, { useEffect, useReducer, useState } from "react";
 import filterBy from "./../utils/filterByExpressions";
+import { multiPassFilter } from "./../utils/filterMethods";
 import { filterReducer } from "./hooks/filterReducer";
-import FilterInputs from "./templates/FilterInputs";
 import Countries from "./templates/Countries";
+import FilterInputs from "./templates/FilterInputs";
 
 const filterDefaults = { search: "", region: "" };
 
-function CountryCards({ countries }) {
+function CountryCards({ countries, countriesLoading }) {
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
 
@@ -33,7 +33,7 @@ function CountryCards({ countries }) {
     return (
         <>
             <FilterInputs inputData={[filter, dispatchFilter]} />
-            <Countries countries={deployCountriesList()} />
+            {!countriesLoading && <Countries countries={deployCountriesList()} />}
         </>
     );
 }

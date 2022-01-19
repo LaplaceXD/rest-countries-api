@@ -44,10 +44,10 @@ export function getRegions() {
     return regions;
 }
 
-export async function loadCountries(fields, loadToCallBack) {
+export async function loadCountries(fields) {
     try {
         const { data } = await getCountries(fields);
-        loadToCallBack(data);
+        return data;
     } catch (ex) {
         error.handle(ex);
     }
