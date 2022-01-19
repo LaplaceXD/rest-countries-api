@@ -9,6 +9,8 @@ const defaultProps = {
 };
 
 function Countries({ countries, display, id }) {
+    console.log(countries);
+
     return (
         <section className="l-grid-4 cards-container">
             {countries.map((country) => (
