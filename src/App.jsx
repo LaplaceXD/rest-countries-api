@@ -14,7 +14,7 @@ function App() {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        loadCountries(countryFields).then((date) => {
+        loadCountries(countryFields).then((data) => {
             setCountries(data);
             setIsLoading(false);
         });
