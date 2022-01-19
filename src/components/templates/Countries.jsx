@@ -15,6 +15,7 @@ function Countries({ countries, display, id }) {
         <section className="l-grid-4 cards-container">
             {countries.map((country) => (
                 <Link key={country[id]} to={`/country/${country[id].toLowerCase()}`}>
+                    {console.log(country)}
                     <Card
                         id={country[id]}
                         items={convertToKeyValue(country, display)}
