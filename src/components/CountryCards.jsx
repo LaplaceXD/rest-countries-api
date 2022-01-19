@@ -28,7 +28,7 @@ function CountryCards({ countries, countriesLoading }) {
 
         const filtered = multiPassFilter(countries, filters);
         setFilteredCountries(filtered);
-    }, [filter]);
+    }, [filter, countries]);
 
     return (
         <>

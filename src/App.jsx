@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { loadCountries } from "./services/countriesService";
 import CountryCards from "./components/CountryCards";
 import CountryProfile from "./components/CountryProfile";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
+import { loadCountries } from "./services/countriesService";
 
 const countryFields = ["name", "flag", "population", "region", "capital", "alpha3Code"];
 
@@ -14,12 +14,11 @@ function App() {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        (async () => {
-            const data = await loadCountries(countryFields);
+        loadCountries(countryFields).then((date) => {
             setCountries(data);
             setIsLoading(false);
-        })();
-    });
+        });
+    }, []);
 
     return (
         <div className="main-container">
