@@ -11,7 +11,14 @@ function CountryCards({ countries }) {
     const [filter, dispatchFilter] = useReducer(filterReducer, filterDefaults);
     const [filteredCountries, setFilteredCountries] = useState([]);
 
-    function filterCountries() {
+    function deployCountriesList() {
+        const { search, region } = filter;
+
+        if (!search && !region) return countries;
+        return filteredCountries;
+    }
+
+    useEffect(() => {
         const { search, region } = filter;
 
         const filters = [
@@ -21,17 +28,6 @@ function CountryCards({ countries }) {
 
         const filtered = multiPassFilter(countries, filters);
         setFilteredCountries(filtered);
-    }
-
-    function deployCountriesList() {
-        const { search, region } = filter;
-
-        if (!search && !region) return countries;
-        return filteredCountries;
-    }
-
-    useEffect(() => {
-        filterCountries();
     }, [filter]);
 
     return (
